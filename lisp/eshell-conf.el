@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Nice aliases for find-file
 (defalias 'open 'find-file)
 (defalias 'openo 'find-file-other-window)

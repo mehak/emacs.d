@@ -1,3 +1,13 @@
+;;; -*- lexical-binding: t -*-
+
+
+;; Had these originally but ripped off the if (fboundp bits from
+;; https://github.com/penryu/emacs.d
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
@@ -6,6 +16,7 @@
 
 (setq package-enable-at-startup nil)
 
+;; TODO re-write to use cl-loop or dolist
 (defun ensure-package-installed (&rest packages)
   "Assure everypackage is installed, ask for installing if it's not.
 
@@ -136,15 +147,6 @@ Return a list of installed packages or nil for every skipped package."
 (line-number-mode 1)
 (column-number-mode 1)
 
-;; Remove cut/copy/etc toolbar
-(tool-bar-mode -1)
-
-;; Remove menu bar
-(menu-bar-mode -1)
-
-;; remove scroll bars
-(scroll-bar-mode -1)
-
 ;; Don't show welcome screen
 (setq inhibit-startup-screen t)
 
@@ -175,10 +177,6 @@ Return a list of installed packages or nil for every skipped package."
 (define-key term-raw-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
 
 
-;; Slack configuration
-;; I'm using use-package and evil
-(load "~/.emacs.d/custom/slack")
-
 (use-package alert
   :commands (alert)
   :init
@@ -187,10 +185,6 @@ Return a list of installed packages or nil for every skipped package."
   (setq alert-persist-idle-time 1))
 
 (global-unset-key (kbd "C-z"))
-
-
-; This doesn't seem to work anymore...
-;(require 'ox-confluence)
 
 
 ;; Easy PG (GPG)
@@ -264,11 +258,6 @@ Null prefix argument turns off the mode."
 (yas-global-mode 1)
 
 
-;; visual-basic-mode
-(add-to-list 'load-path "~/.emacs.d/visual-basic-mode")
-(autoload 'visual-basic-mode "visual-basic-mode" "Visual Basic mode." t)
-(push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
-         auto-mode-alist)
 
 
 ;; Org-mode reveal.js export
@@ -326,15 +315,17 @@ Null prefix argument turns off the mode."
                        ";;; -*- lexical-binding: t; -*-\n\n" '(setq lexical-binding t)))))
               (auto-insert))))
 
-;; eshell configuration
-(load "~/.emacs.d/custom/eshell-conf.el")
 
-;; exwm
-(load "~/.emacs.d/custom/my-exwm.el")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/vendor/")
 
 
-;; custom functions
-(load "~/.emacs.d/custom/custom.el")
+;; visual-basic-mode
+(autoload 'visual-basic-mode "visual-basic-mode" "Visual Basic mode." t)
+(push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
+         auto-mode-alist)
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -342,4 +333,6 @@ Null prefix argument turns off the mode."
  ;; If there is more than one, they won't work right.
  )
 
+
+(load "~/.emacs.d/lisp/exwm-conf.el")
 (eshell)

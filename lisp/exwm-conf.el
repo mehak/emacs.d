@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; EXWM configuration
 ;; Allow fucus to follow mouse
 ;; must be before ('require exwm)

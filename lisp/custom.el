@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Neither of these are my code, so the copyright/license doesn't apply
 ;; TODO: Properly attribute these functions
 
