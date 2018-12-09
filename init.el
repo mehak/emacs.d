@@ -333,6 +333,10 @@ Null prefix argument turns off the mode."
  ;; If there is more than one, they won't work right.
  )
 
-
+;; need to fix this so I don't have to specify particular files
+;; and/or lazy load stuff
 (load "~/.emacs.d/lisp/exwm-conf.el")
+(load "~/.emacs.d/lisp/eshell-conf.el")
+(load "~/.emacs.d/lisp/custom.el")
+(load "~/.emacs.d/lisp/nogit/slack.el")
 (eshell)
