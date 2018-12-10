@@ -9,13 +9,19 @@
 ;; the below is basically (exwm-config-default) minus ido
 ;; Set the initial workspace number.
 (setq exwm-workspace-number 2)
-;; Make class name the buffer name
-(add-hook 'exwm-update-class-hook
-          (lambda ()
-            (exwm-workspace-rename-buffer (concat
-                                           exwm-class-name
-                                           " - "
-                                           exwm-title))))
+
+;; Make class + title for buffer name
+(defun mehak/exwm-update-buffer-name ()
+  (exwm-workspace-rename-buffer (concat
+                                 exwm-class-name
+                                 ": "
+                                 exwm-title)))
+
+;; Set hooks
+(add-hook 'exwm-update-class-hook 'mehak/exwm-update-buffer-name)
+(add-hook 'exwm-update-title-hook 'mehak/exwm-update-buffer-name)
+
+
 ;; 's-r': Reset
 (exwm-input-set-key (kbd "s-r") #'exwm-reset)
 ;; 's-w': Switch workspace
