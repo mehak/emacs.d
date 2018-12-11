@@ -98,6 +98,9 @@ Return a list of installed packages or nil for every skipped package."
   :config
   (evil-collection-init))
 
+;; needed for EXWM simulation keys
+(evil-set-initial-state 'exwm-mode 'emacs)
+
 
 ;; Counsel + flx (swiper ivy) ;;
 ;; Ivy Mode
