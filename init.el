@@ -79,7 +79,7 @@ Return a list of installed packages or nil for every skipped package."
  '(org-export-backends (quote (ascii html icalendar latex man md odt org texinfo)))
  '(package-selected-packages
    (quote
-    (ivy-rich command-log-mode ivy-hydra evil-collection company sly exwm cyberpunk-theme counsel evil-lispy rainbow-delimiters evil-magit ox-reveal ## auto-org-md kotlin-mode xpm yasnippet-snippets yasnippet csharp-mode coffee-mode lua-mode xml-rpc use-package spinner slack queue powershell pkg-info org magit highlight-symbol helm evil-visual-mark-mode csv-mode))))
+    (keyfreq ivy-rich command-log-mode ivy-hydra evil-collection company sly exwm cyberpunk-theme counsel evil-lispy rainbow-delimiters evil-magit ox-reveal ## auto-org-md kotlin-mode xpm yasnippet-snippets yasnippet csharp-mode coffee-mode lua-mode xml-rpc use-package spinner slack queue powershell pkg-info org magit highlight-symbol helm evil-visual-mark-mode csv-mode))))
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
@@ -287,6 +287,12 @@ Null prefix argument turns off the mode."
 
 ;; Some evil-ex commands
 (evil-ex-define-cmd "bd[elete]" 'kill-buffer)
+
+
+;; keyfreq
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
 
 
 ;; Company mode
