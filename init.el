@@ -54,6 +54,7 @@ Return a list of installed packages or nil for every skipped package."
                           'slack
                           'magit
                           'evil-magit
+                          'evil-leader
                           'use-package
                           'counsel
                           'yasnippet)
@@ -84,6 +85,7 @@ Return a list of installed packages or nil for every skipped package."
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
 
+;; Setup evil, evil-leader, and evil-collection
 (use-package evil
   :ensure t
   :init
@@ -96,10 +98,21 @@ Return a list of installed packages or nil for every skipped package."
   :after evil
   :ensure t
   :config
-  (evil-collection-init))
+  (evil-collection-init)
+  (evil-set-initial-state 'exwm-mode 'emacs))
 
-;; needed for EXWM simulation keys
-(evil-set-initial-state 'exwm-mode 'emacs)
+(use-package evil-leader
+  :ensure t
+  :after evil-collection
+  :init
+  :config
+  (define-key evil-motion-state-map (kbd "SPC") nil)
+  (global-evil-leader-mode)
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    "e" 'find-file
+    "b" 'ivy-switch-buffer
+    ":" 'eval-expression))
 
 
 ;; Counsel + flx (swiper ivy) ;;
