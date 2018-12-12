@@ -7,6 +7,7 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+(setq custom-file "~/.emacs.d/custom.el")
 
 (require 'package)
 
@@ -34,20 +35,6 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-
-;; el-get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
-
 (package-initialize)
 
 (ensure-package-installed 'evil
@@ -64,23 +51,6 @@ Return a list of installed packages or nil for every skipped package."
 
 (async-bytecomp-package-mode 1)
 (setq async-bytecomp-allowed-packages '(all))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(coffee-tab-width 2)
- '(column-number-mode t)
- '(custom-enabled-themes (quote (cyberpunk)))
- '(custom-safe-themes
-   (quote
-    ("d1cc05d755d5a21a31bced25bed40f85d8677e69c73ca365628ce8024827c9e3" default)))
- '(org-export-backends (quote (ascii html icalendar latex man md odt org texinfo)))
- '(package-selected-packages
-   (quote
-    (keyfreq ivy-rich command-log-mode ivy-hydra evil-collection company sly exwm cyberpunk-theme counsel evil-lispy rainbow-delimiters evil-magit ox-reveal ## auto-org-md kotlin-mode xpm yasnippet-snippets yasnippet csharp-mode coffee-mode lua-mode xml-rpc use-package spinner slack queue powershell pkg-info org magit highlight-symbol helm evil-visual-mark-mode csv-mode))))
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
@@ -353,17 +323,12 @@ Null prefix argument turns off the mode."
          auto-mode-alist)
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 ;; need to fix this so I don't have to specify particular files
 ;; and/or lazy load stuff
 (load "~/.emacs.d/lisp/exwm-conf.el")
 (load "~/.emacs.d/lisp/eshell-conf.el")
-(load "~/.emacs.d/lisp/custom.el")
+(load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
+(load custom-file :noerror)
+
 (eshell)
