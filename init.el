@@ -80,9 +80,10 @@ Return a list of installed packages or nil for every skipped package."
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
-    "e" 'find-file
-    "b" 'ivy-switch-buffer
-    ":" 'eval-expression))
+    "xf" 'find-file
+    "xb" 'ivy-switch-buffer
+    "xg" 'magit-status
+    ";" 'eval-expression))
 
 
 ;; Counsel + flx (swiper ivy) ;;
