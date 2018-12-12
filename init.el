@@ -314,6 +314,11 @@ Null prefix argument turns off the mode."
 ;; tramp
 (setq tramp-default-method "ssh")
 
+
+;; Emojis everywhere!
+(add-hook 'after-init-hook #'global-emojify-mode)
+
+
 ;; Use lexical binding by default
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
