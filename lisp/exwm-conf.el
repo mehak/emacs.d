@@ -77,6 +77,12 @@
 ;; exwm-randr
 (require 'exwm-randr)
 
+;; Using the below requires refactoring a couple things
+;; Eventual goal is workspaces 1-9 on "top" screen
+;; and workspaces 11-19 on "bottom" screen
+;; s-[1-9] should switch between workspaces 1-9 on top
+;; and it should switch between workspaces 11-19 on bottom
+
 (defun exwm-change-screen-hook ()
   (let ((xrandr-output-regexp "\n\\([^ ]+\\) connected ")
         default-output)
