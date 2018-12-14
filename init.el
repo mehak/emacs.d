@@ -270,6 +270,7 @@ Null prefix argument turns off the mode."
 (require 'evil-lispy)
 (add-hook 'lisp-mode-hook #'evil-lispy-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+(setq lispy-use-sly t)
 
 
 ;; Some evil-ex commands
