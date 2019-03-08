@@ -3,9 +3,17 @@
 (defalias 'open 'find-file)
 (defalias 'openo 'find-file-other-window)
 (defalias 'ff 'find-file)
+(defalias 'ffo 'find-file-other-window)
 (defalias 'vi 'find-file)
 (defalias 'vim 'find-file)
-(defalias 'ffo 'find-file-other-window)
+
+;; Map over commands that don't work well with eshell
+(defun njm-eshell-noop (name &rest rest)
+  (message "%s called with: %s" name rest))
+
+;; (eshell/alias "ssh" "njm-eshell-noop ssh $1")
+;; (eshell/alias "vi" "find-file $1")
+;; (eshell/alias "vim" "find-file $1")
 
 ;; use ivy for tab completion
 (add-hook 'eshell-mode-hook '(lambda ()
