@@ -295,7 +295,6 @@ Null prefix argument turns off the mode."
 ;; erc
 (setq erc-log-channels-directory "~/.erc/logs/")
 (setq erc-save-buffer-on-part t)
-
 (setq erc-rename-buffers t)
 (setq erc-nick "mehak")
 (setq erc-server "i.b1n.win")
@@ -334,7 +333,7 @@ Null prefix argument turns off the mode."
 ;; visual-basic-mode
 (autoload 'visual-basic-mode "visual-basic-mode" "Visual Basic mode." t)
 (push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
-         auto-mode-alist)
+      auto-mode-alist)
 
 
 ;; need to fix this so I don't have to specify particular files
