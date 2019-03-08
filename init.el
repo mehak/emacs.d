@@ -295,6 +295,11 @@ Null prefix argument turns off the mode."
 (setq erc-log-channels-directory "~/.erc/logs/")
 (setq erc-save-buffer-on-part t)
 
+(setq erc-rename-buffers t)
+(setq erc-nick "mehak")
+(setq erc-server "i.b1n.win")
+(setq erc-port 6697)
+(setq erc-fill-column 80)
 
 ;; tramp
 (setq tramp-default-method "ssh")
