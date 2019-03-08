@@ -82,8 +82,11 @@
 ;; and workspaces 11-19 on "bottom" screen
 ;; s-[1-9] should switch between workspaces 1-9 on top
 ;; and it should switch between workspaces 11-19 on bottom
-
+;; TODO: may need to fix a bug that causes the "top"
+;;       to be fuzzy.  Requires disconnecting the screen
+;;       deleting it and re-connecting it
 (defun exwm-change-screen-hook ()
+  (message "exwm change screen hook called")
   (let ((xrandr-output-regexp "\n\\([^ ]+\\) connected ")
         default-output)
     (with-temp-buffer
