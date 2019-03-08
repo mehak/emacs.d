@@ -13,9 +13,9 @@
 ;; Make class + title for buffer name
 (defun mehak/exwm-update-buffer-name ()
   (exwm-workspace-rename-buffer (concat
-                                 exwm-class-name
-                                 ": "
-                                 exwm-title)))
+                                 exwm-title
+                                 " - "
+                                 exwm-class-name)))
 
 ;; Set hooks
 (add-hook 'exwm-update-class-hook 'mehak/exwm-update-buffer-name)
