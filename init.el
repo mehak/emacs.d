@@ -306,6 +306,8 @@ Null prefix argument turns off the mode."
 
 
 ;; Emojis everywhere!
+;; Battery mode
+(display-battery-mode 1)
 (add-hook 'after-init-hook #'global-emojify-mode)
 
 
