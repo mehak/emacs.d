@@ -306,9 +306,13 @@ Null prefix argument turns off the mode."
 (setq tramp-default-method "ssh")
 
 
-;; Emojis everywhere!
 ;; Battery mode
 (display-battery-mode 1)
+
+
+;; NO EMOJIS HERE!!!!
+(setq emojify-inhibit-major-modes (dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode))
+;; Emojis everywhere else
 (add-hook 'after-init-hook #'global-emojify-mode)
 
 
