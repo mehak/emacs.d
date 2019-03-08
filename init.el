@@ -284,6 +284,7 @@ Null prefix argument turns off the mode."
 
 
 ;; Company mode
+(setq company-idle-delay 1)
 (add-hook 'after-init-hook 'global-company-mode)
 
 
