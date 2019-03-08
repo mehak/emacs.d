@@ -16,6 +16,31 @@
 
 (setq eshell-history-size 999999)
 
+(defun njm-eshell-battery ()
+  (format "%s" (if (and battery-echo-area-format battery-status-function)
+                   (battery-format "%L, %B, %p%%, %t"
+                                   (funcall battery-status-function))
+                 "Battery status not available")))
+
+
+;; TODO: May need to set eshell-prompt-regexp to ""
+(setq eshell-prompt-function
+      (lambda ()
+        (concat
+         (propertize "[" 'face `(:foreground "green"))
+         (propertize (user-login-name) 'face `(:foreground "magenta"))
+         (propertize "@" 'face `(:foreground "green"))
+         (propertize (system-name) 'face `(:foreground "pink"))
+         (propertize "]──[" 'face `(:foreground "green"))
+         (propertize (format-time-string "%H:%M:%S" (current-time)) 'face `(:foreground "yellow"))
+         (propertize "]──[" 'face `(:foreground "green"))
+         (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
+         (propertize "]──[" 'face `(:foreground "green"))
+         (propertize (njm-eshell-battery) 'face `(:foreground "white"))
+         (propertize "]" 'face `(:foreground "green"))
+         (propertize "\n" 'face `(:foreground "white")))))
+
+
 ;; copy and paste these for now :-(
 ;; for key in ~/.ssh/*.pub { ssh-add $(file-name-sans-extension key) }
 ;; for key in ~/.ssh/dst/*.pub { ssh-add $(file-name-sans-extension key) }
