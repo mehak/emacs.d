@@ -51,8 +51,7 @@
          (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
          (propertize "]──[" 'face `(:foreground "green"))
          (propertize (njm-eshell-battery) 'face `(:foreground "white"))
-         (propertize "]" 'face `(:foreground "green"))
-         (propertize "\n" 'face `(:foreground "white")))))
+         (propertize "]\n" 'face `(:foreground "green")))))
 
 
 ;; copy and paste these for now :-(
