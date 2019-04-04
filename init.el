@@ -340,6 +340,7 @@ Null prefix argument turns off the mode."
 ;; and/or lazy load stuff
 (load "~/.emacs.d/lisp/exwm-conf.el")
 (load "~/.emacs.d/lisp/eshell-conf.el")
+(load "~/.emacs.d/lisp/ibuffer-conf.el")
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
 (load custom-file :noerror)
