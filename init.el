@@ -309,12 +309,6 @@ Null prefix argument turns off the mode."
 (display-battery-mode 1)
 
 
-;; NO EMOJIS HERE!!!!
-(setq emojify-inhibit-major-modes (dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode))
-;; Emojis everywhere else
-(add-hook 'after-init-hook #'global-emojify-mode)
-
-
 ;; Use lexical binding by default
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
@@ -344,5 +338,11 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
 (load custom-file :noerror)
+
+;; NO EMOJIS HERE!!!!
+(setq emojify-inhibit-major-modes '(dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode))
+;; Emojis everywhere else
+(add-hook 'after-init-hook #'global-emojify-mode)
+
 
 (eshell)
