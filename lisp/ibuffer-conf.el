@@ -17,13 +17,20 @@
 
 ;; Needs work to look good, major-mode is not equal to ibuffer-formats mode
 (define-ibuffer-column exwm-mode
-  (:name "mode")
+  (:name "EXWM-Mode")
   (cond
    ((string-equal major-mode "exwm-mode") (format "%s" exwm-class-name))
-   (t (format "%s" major-mode))))
+   (t (format "%s" mode-name))))
 
 (setq ibuffer-formats
       '((mark modified read-only locked " "
+              (name 50 50 :left :elide)
+              " "
+              (size-h 16 16 :right)
+              " "
+              (exwm-mode 18 18 :left :elide)
+              " " filename-and-process)
+        (mark modified read-only locked " "
               (name 50 50 :left :elide)
               " "
               (size-h 16 16 :right)
