@@ -63,7 +63,9 @@ Return a list of installed packages or nil for every skipped package."
 ;; https://emacs.stackexchange.com/a/40649
 (defun hide-trailing-whitespace-for-modes ()
   "Disable `show-trailing-whitespace' in selected modes."
-  (when (or (derived-mode-p 'shell-mode)
+  (when (or (derived-mode-p
+             'shell-mode
+             'erc-mode)
             (minibufferp))
     (setq show-trailing-whitespace nil)))
 
