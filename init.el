@@ -55,6 +55,23 @@ Return a list of installed packages or nil for every skipped package."
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
+;; Show trailing whitespace and remove it easily
+(setq-default show-trailing-whitespace t)
+(global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
+
+;; https://emacs.stackexchange.com/a/40649
+(defun hide-trailing-whitespace-for-modes ()
+  "Disable `show-trailing-whitespace' in selected modes."
+  (when (or (derived-mode-p 'shell-mode)
+            (minibufferp))
+    (setq show-trailing-whitespace nil)))
+
+(add-hook 'after-change-major-mode-hook
+          'hide-trailing-whitespace-for-modes)
+;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
+
+
 ;; Setup evil, evil-leader, and evil-collection
 (use-package evil
   :ensure t
