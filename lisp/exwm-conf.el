@@ -11,11 +11,9 @@
 (setq exwm-workspace-number 2)
 
 ;; Make class + title for buffer name
+;; Extra space due to bug in swiper, possibly?
 (defun mehak/exwm-update-buffer-name ()
-  (exwm-workspace-rename-buffer (concat
-                                 exwm-title
-                                 " - "
-                                 exwm-class-name)))
+  (exwm-workspace-rename-buffer (concat exwm-title " ")))
 
 ;; Set hooks
 (add-hook 'exwm-update-class-hook 'mehak/exwm-update-buffer-name)
