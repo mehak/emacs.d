@@ -65,7 +65,9 @@ Return a list of installed packages or nil for every skipped package."
   "Disable `show-trailing-whitespace' in selected modes."
   (when (or (derived-mode-p
              'shell-mode
-             'erc-mode)
+             'erc-mode
+             'eshell-mode
+             'term-mode)
             (minibufferp))
     (setq show-trailing-whitespace nil)))
 
