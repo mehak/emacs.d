@@ -39,3 +39,14 @@
     (delete-region start end)
     (insert insertion)
     (when arg (forward-char (length insertion)))))
+
+;; Thanks to pkkm
+;; https://www.reddit.com/r/emacs/comments/72ukrx/theme_preferences/dnmgcef?utm_source=share&utm_medium=web2x
+(defun change-theme (&rest args)
+  "Like `load-theme', but disables all themes before loading the new one."
+  ;; The `interactive' magic is for creating a future-proof passthrough (see <https://emacs.stackexchange.com/a/19242>).
+  (interactive (advice-eval-interactive-spec
+                (cadr (interactive-form #'load-theme))))
+  (mapcar #'disable-theme custom-enabled-themes)
+  (apply (if (called-interactively-p 'any) #'funcall-interactively #'funcall)
+         #'load-theme args))
