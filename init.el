@@ -54,13 +54,10 @@ Return a list of installed packages or nil for every skipped package."
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
-(use-package zenburn-theme
+(use-package color-theme-sanityinc-tomorrow-colors
   :ensure t
-  :init
-  (setq zenburn-override-colors-alist
-        '(("zenburn-bg" . "#111111")))
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'sanityinc-tomorrow-night t))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
