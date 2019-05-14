@@ -8,6 +8,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (setq custom-file "~/.emacs.d/custom.el")
+(load custom-file :noerror)
 
 (require 'package)
 
@@ -54,10 +55,6 @@ Return a list of installed packages or nil for every skipped package."
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
-(use-package color-theme-sanityinc-tomorrow-colors
-  :ensure t
-  :config
-  (load-theme 'sanityinc-tomorrow-night t))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
@@ -363,7 +360,8 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/ibuffer-conf.el")
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
-(load custom-file :noerror)
+
+(change-theme 'sanityinc-tomorrow-night)
 
 ;; NO EMOJIS HERE!!!!
 (setq emojify-inhibit-major-modes '(dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode))
