@@ -112,7 +112,12 @@ Return a list of installed packages or nil for every skipped package."
     "xf" 'find-file
     "xb" 'ivy-switch-buffer
     "xg" 'magit-status
-    ";" 'eval-expression))
+    ";" 'eval-expression
+    "dd" 'kill-whole-line
+    "h?" 'help-for-help
+    "hw" 'where-is
+    "hf" 'counsel-describe-function
+    "hk" 'describe-key))
 
 
 ;; Counsel + flx (swiper ivy) ;;
