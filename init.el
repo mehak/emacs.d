@@ -155,9 +155,18 @@ Return a list of installed packages or nil for every skipped package."
 (setq powershell-location-of-exe "/usr/bin/pwsh")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;;;;;; Mode-line config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup a ruler (vim) like display at bottom
 (line-number-mode 1)
 (column-number-mode 1)
+;; Battery mode
+(display-battery-mode 1)
+;; Show the time
+(setq display-time-string-forms
+      '((format-time-string "%F %R ")))
+(display-time-mode 1)
+;;;;;;;;;;;;;;;;;;;;;;;;:::::::::::::::::::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; Don't show welcome screen
 (setq inhibit-startup-screen t)
@@ -328,10 +337,6 @@ Null prefix argument turns off the mode."
 
 ;; tramp
 (setq tramp-default-method "ssh")
-
-
-;; Battery mode
-(display-battery-mode 1)
 
 
 ;; Use lexical binding by default
