@@ -53,6 +53,7 @@
          (propertize (njm-eshell-battery) 'face `(:foreground "white"))
          (propertize "]\n" 'face `(:foreground "green")))))
 
+(setq eshell-prompt-regexp "")
 
 ;; copy and paste these for now :-(
 ;; for key in ~/.ssh/*.pub { ssh-add $(file-name-sans-extension key) }
