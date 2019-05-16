@@ -30,11 +30,6 @@
 
 (setq eshell-history-size 999999)
 
-(defun njm-eshell-battery ()
-  (format "%s" (if (and battery-echo-area-format battery-status-function)
-                   (battery-format "%L, %B, %p%%, %t"
-                                   (funcall battery-status-function))
-                 "Battery status not available")))
 
 
 ;; TODO: May need to set eshell-prompt-regexp to ""
@@ -50,7 +45,6 @@
          (propertize "]──[" 'face `(:foreground "green"))
          (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
          (propertize "]──[" 'face `(:foreground "green"))
-         (propertize (njm-eshell-battery) 'face `(:foreground "white"))
          (propertize "]\n" 'face `(:foreground "green")))))
 
 (setq eshell-prompt-regexp "")
