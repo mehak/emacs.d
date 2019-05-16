@@ -2,7 +2,7 @@
 
 ;; Use human readable Size column instead of original one
 (define-ibuffer-column size-h
-  (:name "Size" :inline t)
+  (:name "Size")
   (cond
    ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
    ((> (buffer-size) 100000) (format "%7.0fk" (/ (buffer-size) 1000.0)))
