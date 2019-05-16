@@ -307,7 +307,9 @@ Null prefix argument turns off the mode."
 
 
 ;; Company mode
-(setq company-idle-delay 1)
+(setq company-idle-delay 1
+      company-quickhelp-color-foreground "#DCDCCC"
+      company-quickhelp-color-background "#4F4F4F")
 (add-hook 'after-init-hook 'global-company-mode)
 
 
