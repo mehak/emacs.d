@@ -30,6 +30,12 @@
 
 (setq eshell-history-size 999999)
 
+(defun njm/pwd ()
+  "Shows the present working directory with $HOME replaced with ~"
+  (replace-regexp-in-string
+   (concat "^" (getenv "HOME"))
+   "~"
+   (eshell/pwd)))
 
 (setq eshell-prompt-function
       (lambda ()
@@ -41,8 +47,8 @@
          (propertize "]──[" 'face `(:foreground "green"))
          (propertize (format-time-string "%H:%M:%S" (current-time)) 'face `(:foreground "yellow"))
          (propertize "]──[" 'face `(:foreground "green"))
-         (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
          (propertize "]──[" 'face `(:foreground "green"))
+         (propertize (njm/pwd) 'face `(:foreground "white"))
          (propertize "]\n" 'face `(:foreground "green")))))
 
 (setq eshell-prompt-regexp "")
