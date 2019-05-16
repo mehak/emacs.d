@@ -7,8 +7,14 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Remove custom if possible
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file :noerror)
+
+;; pulled out of custom.el
+(setq blink-cursor-mode nil)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'package)
 
@@ -139,7 +145,6 @@ Return a list of installed packages or nil for every skipped package."
 
 
 ;;;;;;;;;;; Indentation ;;;;;;;;;;;;;;;;;;;;
-
 ;; Set javascript to use 4 spaces on indent
 (setq js-indent-level 4)
 
@@ -148,10 +153,7 @@ Return a list of installed packages or nil for every skipped package."
 ;; need to fix this for pwsh
 (setq powershell-indent 2)
 (setq powershell-location-of-exe "/usr/bin/pwsh")
-
-
-;;;;;;;;;;; Indentation ;;;;;;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Setup a ruler (vim) like display at bottom
 (line-number-mode 1)
@@ -266,8 +268,6 @@ Null prefix argument turns off the mode."
 
 ;; yassnippet
 (yas-global-mode 1)
-
-
 
 
 ;; Org-mode reveal.js export
