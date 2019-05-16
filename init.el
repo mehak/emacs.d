@@ -361,7 +361,7 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
 
-(change-theme 'sanityinc-tomorrow-night)
+(load-theme 'sanityinc-tomorrow-night t)
 
 ;; NO EMOJIS HERE!!!!
 (setq emojify-inhibit-major-modes '(dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode))
