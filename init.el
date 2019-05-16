@@ -312,7 +312,7 @@ Null prefix argument turns off the mode."
 
 
 ;; pdf-tools
-(pdf-tools-install)
+(pdf-loader-install)
 
 
 ;; erc
