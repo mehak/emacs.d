@@ -31,8 +31,6 @@
 (setq eshell-history-size 999999)
 
 
-
-;; TODO: May need to set eshell-prompt-regexp to ""
 (setq eshell-prompt-function
       (lambda ()
         (concat
