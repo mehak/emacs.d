@@ -169,7 +169,7 @@ Return a list of installed packages or nil for every skipped package."
 (display-battery-mode 1)
 ;; Show the time
 (setq display-time-string-forms
-      '((format-time-string "%F %R ")))
+      '((format-time-string " [%F %R] ")))
 (display-time-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;:::::::::::::::::::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
