@@ -161,7 +161,7 @@ Return a list of installed packages or nil for every skipped package."
 (setq powershell-location-of-exe "/usr/bin/pwsh")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;; Mode-line config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;; Mode line config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup a ruler (vim) like display at bottom
 (line-number-mode 1)
 (column-number-mode 1)
