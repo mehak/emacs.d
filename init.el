@@ -165,6 +165,10 @@ Return a list of installed packages or nil for every skipped package."
 ;; Setup a ruler (vim) like display at bottom
 (line-number-mode 1)
 (column-number-mode 1)
+;; Minions - minor mode menus
+(use-package minions
+  :config
+  (minions-mode 1))
 ;; Battery mode
 (display-battery-mode 1)
 ;; Show the time
