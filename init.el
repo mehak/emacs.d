@@ -171,7 +171,7 @@ Return a list of installed packages or nil for every skipped package."
 (setq display-time-string-forms
       '((format-time-string " [%F %R] ")))
 (display-time-mode 1)
-;;;;;;;;;;;;;;;;;;;;;;;;:::::::::::::::::::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;; Don't show welcome screen
