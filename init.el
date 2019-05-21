@@ -63,8 +63,7 @@ Return a list of installed packages or nil for every skipped package."
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitespace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Show trailing whitespace and remove it easily
 (setq-default show-trailing-whitespace t)
 (global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
@@ -82,9 +81,18 @@ Return a list of installed packages or nil for every skipped package."
 
 (add-hook 'after-change-major-mode-hook
           'hide-trailing-whitespace-for-modes)
-;;;;;;;;;;;;;;;;;;;;;;;;;; Trailing whitepsace ;;;;;;;;;;;;;;;;;;;;
+
+;; Pretty sure the below is no longer working, will test when I have more time
+;; whitespace-mode
+(require 'whitespace)
+;; automatically clean up bad whitespace
+(setq whitespace-action '(auto-cleanup))
+;; only show bad whitespace
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; Evil ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Setup evil, evil-leader, and evil-collection
 (use-package evil
   :ensure t
@@ -120,7 +128,21 @@ Return a list of installed packages or nil for every skipped package."
     "hf" 'counsel-describe-function
     "hk" 'describe-key))
 
+;; evil-magit
+(require 'evil-magit)
 
+;; evil-lisp
+(require 'evil-lispy)
+(add-hook 'lisp-mode-hook #'evil-lispy-mode)
+(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+(setq lispy-use-sly t)
+
+;; Some evil-ex commands
+(evil-ex-define-cmd "bd[elete]" 'kill-buffer)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;; Counsel/flx ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Counsel + flx (swiper ivy) ;;
 ;; Ivy Mode
 (ivy-mode 1)
@@ -148,6 +170,7 @@ Return a list of installed packages or nil for every skipped package."
 (global-set-key "\C-hf" 'counsel-describe-function)
 ;; Rebind C-h v to counsel-describe-variable
 (global-set-key "\C-hv" 'counsel-describe-variable)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Indentation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -293,14 +316,6 @@ Null prefix argument turns off the mode."
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
 
-;; whitespace-mode
-(require 'whitespace)
-;; automatically clean up bad whitespace
-(setq whitespace-action '(auto-cleanup))
-;; only show bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
-
-
 ;; yassnippet
 (yas-global-mode 1)
 
@@ -315,24 +330,9 @@ Null prefix argument turns off the mode."
 (add-hook 'prog-mode-hook #'smartparens-strict-mode)
 
 
-;; evil-magit
-(require 'evil-magit)
-
-
 ;; rainbow delimeters
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-
-;; evil-lisp
-(require 'evil-lispy)
-(add-hook 'lisp-mode-hook #'evil-lispy-mode)
-(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
-(setq lispy-use-sly t)
-
-
-;; Some evil-ex commands
-(evil-ex-define-cmd "bd[elete]" 'kill-buffer)
 
 
 ;; keyfreq
@@ -376,10 +376,6 @@ Null prefix argument turns off the mode."
               (auto-insert))))
 
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/.emacs.d/vendor/")
-
-
 ;; visual-basic-mode
 (autoload 'visual-basic-mode "visual-basic-mode" "Visual Basic mode." t)
 (push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
@@ -388,6 +384,8 @@ Null prefix argument turns off the mode."
 
 ;; need to fix this so I don't have to specify particular files
 ;; and/or lazy load stuff
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/vendor/")
 (load "~/.emacs.d/lisp/exwm-conf.el")
 (load "~/.emacs.d/lisp/eshell-conf.el")
 (load "~/.emacs.d/lisp/ibuffer-conf.el")
@@ -395,10 +393,12 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/nogit/slack.el")
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; Emojify ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; NO EMOJIS HERE!!!!
 (setq emojify-inhibit-major-modes '(dired-mode doc-view-mode debugger-mode pdf-view-mode image-mode help-mode ibuffer-mode magit-popup-mode magit-diff-mode ert-results-mode compilation-mode proced-mode mu4e-headers-mode eshell-mode term-mode))
 ;; Emojis everywhere else
 (add-hook 'after-init-hook #'global-emojify-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 (eshell)
