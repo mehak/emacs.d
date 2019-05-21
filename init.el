@@ -168,6 +168,16 @@ Return a list of installed packages or nil for every skipped package."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Mode line config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Smart-mode-line
+(setq
+ sml/no-confirm-load-theme t
+ sml/theme 'respectful)
+(sml/setup)
+(setq
+ sml/shorten-directory t
+ sml/name-width 20
+ sml/replacer-regexp-list '((".+" ""))
+ sml/shortener-func (lambda (_dir _max-length) " "))
 ;; Setup a ruler (vim) like display at bottom
 (line-number-mode 1)
 (column-number-mode 1)
