@@ -352,14 +352,21 @@ Null prefix argument turns off the mode."
 (pdf-loader-install)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; erc ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; erc
-(setq erc-log-channels-directory "~/.erc/logs/")
-(setq erc-save-buffer-on-part t)
-(setq erc-rename-buffers t)
-(setq erc-nick "mehak")
-(setq erc-server "i.b1n.win")
-(setq erc-port 6697)
-(setq erc-fill-column 80)
+(setq
+ erc-log-channels-directory "~/.erc/logs/"
+ erc-save-buffer-on-part nil
+ erc-save-queries-on-quit nil
+ erc-log-write-after-send t
+ erc-log-write-after-insert t
+ erc-rename-buffers t
+ erc-nick "mehak"
+ erc-server "i.b1n.win"
+ erc-port 6697
+ erc-fill-column 80)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; tramp
 (setq tramp-default-method "ssh")
