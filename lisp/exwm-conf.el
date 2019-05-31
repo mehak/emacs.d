@@ -112,7 +112,7 @@
          "xrandr" nil nil nil
          "--output" (match-string 1) "--auto"
          "--output" default-output "--auto" "--below" (match-string 1))
-        (setq exwm-randr-workspace-output-plist (list 1 (match-string 1)))))))
+        (setq exwm-randr-workspace-monitor-plist (list 1 (match-string 1)))))))
 
 (add-hook 'exwm-randr-screen-change-hook 'exwm-change-screen-hook)
 (exwm-randr-enable)
