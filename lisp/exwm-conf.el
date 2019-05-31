@@ -75,26 +75,39 @@
 ;; exwm-randr
 (require 'exwm-randr)
 
+(defun njm/exwm/default-only (default-display first-match-point)
+  "Only show the default display"
+  (goto-char first-match-point)
+  (let ((regex "\n\\([^ ]+\\)")
+        (off-outputs))
+    (while (re-search-forward regex nil 'noerror)
+      (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
+          (push
+           (format "--output %s --off" (match-string 1))
+           off-outputs)))
+    (shell-command (format "xrandr --output %s --auto %s"
+                           default-display
+                           (mapconcat 'identity off-outputs " ")))))
+
 ;; Using the below requires refactoring a couple things
 ;; Eventual goal is workspaces 1-9 on "top" screen
 ;; and workspaces 11-19 on "bottom" screen
 ;; s-[1-9] should switch between workspaces 1-9 on top
 ;; and it should switch between workspaces 11-19 on bottom
-;; TODO: may need to fix a bug that causes the "top"
-;;       to be fuzzy.  Requires disconnecting the screen
-;;       deleting it and re-connecting it
 (defun exwm-change-screen-hook ()
   (message "exwm change screen hook called")
   (let ((xrandr-output-regexp "\n\\([^ ]+\\) connected ")
+        first-match-point
         default-output)
     (with-temp-buffer
       (call-process "xrandr" nil t nil)
       (goto-char (point-min))
-      (re-search-forward xrandr-output-regexp nil 'noerror)
+      (setq first-match-point
+            (re-search-forward xrandr-output-regexp nil 'noerror))
       (setq default-output (match-string 1))
       (forward-line)
       (if (not (re-search-forward xrandr-output-regexp nil 'noerror))
-          (call-process "xrandr" nil nil nil "--output" default-output "--auto")
+          (njm/exwm/default-only default-output first-match-point)
         (call-process
          "xrandr" nil nil nil
          "--output" (match-string 1) "--auto"
