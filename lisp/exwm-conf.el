@@ -10,10 +10,24 @@
 ;; Set the initial workspace number.
 (setq exwm-workspace-number 2)
 
-;; Make class + title for buffer name
-;; Extra space due to bug in swiper, possibly?
+;; Need to fix mode line to reduce the buffer name length
+;; but I am fine with the below for now
 (defun mehak/exwm-update-buffer-name ()
-  (exwm-workspace-rename-buffer (concat exwm-title " ")))
+  (let* ((title exwm-title)
+         (title-length (length title)))
+    (if (eq title-length 0)
+        (progn
+          (setq title
+                exwm-class-name
+                title-length
+                (length title))))
+    (exwm-workspace-rename-buffer
+     (substring
+      title
+      0
+      (if (< title-length 20)
+          title-length
+        20)))))
 
 ;; Set hooks
 (add-hook 'exwm-update-class-hook 'mehak/exwm-update-buffer-name)
