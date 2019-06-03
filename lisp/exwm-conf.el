@@ -10,24 +10,13 @@
 ;; Set the initial workspace number.
 (setq exwm-workspace-number 2)
 
-;; Need to fix mode line to reduce the buffer name length
-;; but I am fine with the below for now
+
 (defun mehak/exwm-update-buffer-name ()
-  (let* ((title exwm-title)
-         (title-length (length title)))
-    (if (eq title-length 0)
-        (progn
-          (setq title
-                exwm-class-name
-                title-length
-                (length title))))
-    (exwm-workspace-rename-buffer
-     (substring
-      title
-      0
-      (if (< title-length 20)
-          title-length
-        20)))))
+  "Update EXWM buffer name"
+  (let ((title exwm-title))
+    (if (eq (length title) 0)
+        (setq title exwm-class-name))
+    (exwm-workspace-rename-buffer title)))
 
 ;; Set hooks
 (add-hook 'exwm-update-class-hook 'mehak/exwm-update-buffer-name)
