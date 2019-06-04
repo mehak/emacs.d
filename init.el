@@ -190,33 +190,6 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;; Mode line config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Smart-mode-line
-(setq
- sml/no-confirm-load-theme t
- sml/theme 'respectful)
-(sml/setup)
-(setq
- sml/shorten-directory t
- sml/name-width 20
- sml/replacer-regexp-list '((".+" ""))
- sml/shortener-func (lambda (_dir _max-length) " "))
-;; Setup a ruler (vim) like display at bottom
-(line-number-mode 1)
-(column-number-mode 1)
-;; Minions - minor mode menus
-(use-package minions
-  :config
-  (minions-mode 1))
-;; Battery mode
-(display-battery-mode 1)
-;; Show the time
-(setq display-time-string-forms
-      '((format-time-string " [%F %R] ")))
-(display-time-mode 1)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 ;; Don't show welcome screen
 (setq inhibit-startup-screen t)
 
@@ -402,6 +375,7 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/ibuffer-conf.el")
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
+(load "modeline-conf")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Emojify ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
