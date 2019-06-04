@@ -369,11 +369,10 @@ Null prefix argument turns off the mode."
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/vendor/")
-(load "~/.emacs.d/lisp/exwm-conf.el")
-(load "~/.emacs.d/lisp/eshell-conf.el")
-(load "~/.emacs.d/lisp/ibuffer-conf.el")
-(load "~/.emacs.d/lisp/misc-functions.el")
-(load "~/.emacs.d/lisp/nogit/slack.el")
+(load "exwm-conf")
+(load "eshell-conf")
+(load "ibuffer-conf")
+(load "misc-functions")
 (load "modeline-conf")
 (load "cyphejor-conf")
 
