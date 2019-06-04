@@ -46,7 +46,6 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 (ensure-package-installed 'evil
-                          'slack
                           'magit
                           'evil-magit
                           'evil-leader
