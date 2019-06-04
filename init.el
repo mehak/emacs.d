@@ -375,6 +375,7 @@ Null prefix argument turns off the mode."
 (load "~/.emacs.d/lisp/misc-functions.el")
 (load "~/.emacs.d/lisp/nogit/slack.el")
 (load "modeline-conf")
+(load "cyphejor-conf")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Emojify ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
