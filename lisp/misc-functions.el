@@ -1,7 +1,15 @@
 ;;; -*- lexical-binding: t -*-
 ;; Neither of these are my code, so the copyright/license doesn't apply
-;; TODO: Properly attribute these functions
 
+
+(defun mehak/major-mode-or-class ()
+  "Returns the major mode or EXWM class"
+  (if (string-equal major-mode "exwm-mode")
+      (format "%s" exwm-class-name)
+    (format "%s" mode-name)))
+
+
+;; TODO: Properly attribute these functions
 ;; Toggle window split
 (defun toggle-window-split ()
   (interactive)

@@ -18,9 +18,7 @@
 ;; Needs work to look good, major-mode is not equal to ibuffer-formats mode
 (define-ibuffer-column exwm-mode
   (:name "EXWM-Mode")
-  (cond
-   ((string-equal major-mode "exwm-mode") (format "%s" exwm-class-name))
-   (t (format "%s" mode-name))))
+  (mehak/major-mode-or-class))
 
 (setq ibuffer-formats
       '((mark modified read-only locked " "
