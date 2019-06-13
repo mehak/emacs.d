@@ -41,16 +41,10 @@
       (lambda ()
         (concat
          (propertize "[" 'face `(:foreground "green"))
-         (propertize (user-login-name) 'face `(:foreground "magenta"))
-         (propertize "@" 'face `(:foreground "green"))
-         (propertize (system-name) 'face `(:foreground "pink"))
-         (propertize "]──[" 'face `(:foreground "green"))
          (propertize (format-time-string "%H:%M:%S") 'face `(:foreground "yellow"))
-         (propertize "]──[" 'face `(:foreground "green"))
-         (propertize (njm/pwd) 'face `(:foreground "white"))
+         (propertize "][" 'face `(:foreground "green"))
+         (propertize (njm/pwd) 'face `(:foreground "tan"))
          (propertize "]\n" 'face `(:foreground "green")))))
-
-(setq eshell-prompt-regexp "")
 
 ;; copy and paste these for now :-(
 ;; for key in ~/.ssh/*.pub { ssh-add $(file-name-sans-extension key) }
