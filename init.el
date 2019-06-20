@@ -80,14 +80,6 @@ Return a list of installed packages or nil for every skipped package."
 
 (add-hook 'after-change-major-mode-hook
           'hide-trailing-whitespace-for-modes)
-
-;; Pretty sure the below is no longer working, will test when I have more time
-;; whitespace-mode
-(require 'whitespace)
-;; automatically clean up bad whitespace
-(setq whitespace-action '(auto-cleanup))
-;; only show bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
