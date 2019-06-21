@@ -113,7 +113,7 @@ Return a list of installed packages or nil for every skipped package."
     "xb" 'ivy-switch-buffer
     "xg" 'magit-status
     ";" 'eval-expression
-    "dd" 'kill-whole-line
+    "d" 'kill-whole-line
     "h?" 'help-for-help
     "hw" 'where-is
     "hf" 'counsel-describe-function
