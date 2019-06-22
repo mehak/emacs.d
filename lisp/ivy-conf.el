@@ -3,10 +3,18 @@
 ;; Counsel + flx (swiper ivy) ;;
 ;; Ivy Mode
 (ivy-mode 1)
-;; Use fuzzy search after every character
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
-(setq ivy-initial-inputs-alist nil)
+      '((t . ivy--regex-plus)))
+(setq ivy-initial-inputs-alist
+      '((org-refile . "^")
+        (org-agenda-refile . "^")
+        (org-capture-refile . "^")
+        (counsel-M-x . "^")
+        (counsel-describe-function . "^")
+        (counsel-describe-variable . "^")
+        (counsel-org-capture . "^")
+        (Man-completion-table . "^")
+        (woman . "^")))
 
 ;; basic customization
 (setq ivy-use-virtual-buffers t)
