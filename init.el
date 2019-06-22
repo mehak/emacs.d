@@ -326,6 +326,11 @@ Null prefix argument turns off the mode."
 (setq shr-width 75)
 
 
+;; Shut off pronounce for sdcv
+(require 'sdcv)
+(setq sdcv-word-pronounce nil)
+
+
 ;; need to fix this so I don't have to specify particular files
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
