@@ -82,15 +82,15 @@
   "Only show the default display"
   (goto-char first-match-point)
   (let ((regex "\n\\([^ ]+\\)")
-        (xrandr-arguments `("--output" ,default-display "--auto"))))
-  (while (re-search-forward regex nil 'noerror)
-    (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
-        (setq xrandr-arguments
-              (append xrandr-arguments
-                      `("--output" ,(match-string 1) "--auto")))))
-  (apply 'call-process
-         (append '("xrandr" nil nil nil)
-                 xrandr-arguments)))
+        (xrandr-arguments `("--output" ,default-display "--auto")))
+    (while (re-search-forward regex nil 'noerror)
+      (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
+          (setq xrandr-arguments
+                (append xrandr-arguments
+                        `("--output" ,(match-string 1) "--auto")))))
+    (apply 'call-process
+           (append '("xrandr" nil nil nil)
+                   xrandr-arguments))))
 
 ;; Using the below requires refactoring a couple things
 ;; Eventual goal is workspaces 1-9 on "top" screen
