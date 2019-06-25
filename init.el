@@ -226,6 +226,12 @@ Null prefix argument turns off the mode."
               auto-mode-alist))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; Magit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Show differences for specific hunk only
+(setq-default magit-diff-refine-hunk t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 75)
 
