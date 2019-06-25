@@ -181,6 +181,7 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; Encryption ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Easy PG (GPG)
 (require 'epa-file)
 (epa-file-enable)
@@ -215,6 +216,7 @@ Null prefix argument turns off the mode."
 (setq auto-mode-alist
       (append '(("\\.gpg$" . sensitive-mode))
               auto-mode-alist))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Magit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
