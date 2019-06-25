@@ -169,6 +169,7 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;;;;;;;;;;;;;;;;;;;;;;;; Alerts ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package alert
   :commands (alert)
   :init
@@ -177,6 +178,7 @@ Return a list of installed packages or nil for every skipped package."
   (setq alert-persist-idle-time 1))
 
 (global-unset-key (kbd "C-z"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;; Easy PG (GPG)
