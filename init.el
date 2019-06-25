@@ -150,18 +150,6 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; Don't show welcome screen
-(setq inhibit-startup-screen t)
-
-;; Enable erase-buffer
-(put 'erase-buffer 'disabled nil)
-
-;; Copy to primary clipboard too
-(setq x-select-enable-primary t)
-
-(fset 'perl-mode 'cperl-mode)
-
-
 ;; Term mode and helpful keybindings
 (require 'term)
 
@@ -232,9 +220,19 @@ Null prefix argument turns off the mode."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;; Don't show welcome screen
+(setq inhibit-startup-screen t)
+
+;; Enable erase-buffer
+(put 'erase-buffer 'disabled nil)
+
+;; Copy to primary clipboard too
+(setq x-select-enable-primary t)
+
+(fset 'perl-mode 'cperl-mode)
+
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 75)
-
 
 ;; Make ibuffer default
 (global-set-key "\C-x\C-b" 'ibuffer)
