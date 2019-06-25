@@ -150,7 +150,7 @@ Return a list of installed packages or nil for every skipped package."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; Term mode and helpful keybindings
+;;;;;;;;;;;;;;;;;;;;;;;; Term-Mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'term)
 
 ;; Helpful keybindings for term-mode
@@ -166,6 +166,7 @@ Return a list of installed packages or nil for every skipped package."
 (define-key term-raw-map (kbd "C-c C-j") 'jnm/term-toggle-mode)
 (define-key term-mode-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
 (define-key term-raw-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 (use-package alert
