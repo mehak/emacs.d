@@ -156,6 +156,9 @@
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/vendor/")
+(load "trailing-whitespace-conf")
+(load "evil-conf")
+(load "alert-conf")
 (load "misc-functions")
 (load "exwm-conf")
 (load "eshell-conf")
@@ -163,6 +166,11 @@
 (load "modeline-conf")
 (load "cyphejor-conf")
 (load "ivy-conf")
+(load "erc-conf")
+(load "magit-conf")
+(load "term-conf")
+(load "sdcv-conf")
+(load "emojify-conf")
 
 
 (eshell)
