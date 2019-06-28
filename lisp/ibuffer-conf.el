@@ -44,7 +44,8 @@
       '(("default"
          ("erc" (mode . erc-mode))
          ("emacs" (name . "^\\*[A-Za-z-]+\\*$"))
-         ("magit" (name . "^magit: "))
+         ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
+                       (filename . ".*")))
          ("firefox" (name . "Mozilla Firefox$")))))
 
 (add-hook 'ibuffer-mode-hook
