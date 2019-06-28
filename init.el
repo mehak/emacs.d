@@ -40,55 +40,6 @@
 (set-face-attribute 'default nil :font "Source Code Pro" :height 83)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;; Evil ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Setup evil, evil-leader, and evil-collection
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init)
-  (evil-set-initial-state 'exwm-mode 'emacs))
-
-(use-package evil-leader
-  :ensure t
-  :after evil-collection
-  :init
-  :config
-  (define-key evil-motion-state-map (kbd "SPC") nil)
-  (global-evil-leader-mode)
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "xf" 'find-file
-    "xb" 'ivy-switch-buffer
-    "xg" 'magit-status
-    ";" 'eval-expression
-    "d" 'kill-whole-line
-    "h?" 'help-for-help
-    "hw" 'where-is
-    "hf" 'counsel-describe-function
-    "hk" 'describe-key))
-
-;; evil-magit
-(require 'evil-magit)
-
-;; evil-lisp
-(require 'evil-lispy)
-(add-hook 'lisp-mode-hook #'evil-lispy-mode)
-(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
-(setq lispy-use-sly t)
-
-;; Some evil-ex commands
-(evil-ex-define-cmd "bd[elete]" 'kill-buffer)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Indentation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Set javascript to use 4 spaces on indent
