@@ -45,7 +45,6 @@
 ;; Set javascript to use 4 spaces on indent
 (setq js-indent-level 4)
 ;; Powershell modes
-;; need to fix this for pwsh
 (setq powershell-indent 2)
 (setq powershell-location-of-exe "/usr/bin/pwsh")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
