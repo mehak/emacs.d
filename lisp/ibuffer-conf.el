@@ -39,3 +39,14 @@
         (mark " "
               (name 16 -1)
               " " filename)))
+
+(setq ibuffer-saved-filter-groups
+      '(("default"
+         ("erc" (mode . erc-mode))
+         ("emacs" (name . "^\\*[A-Za-z-]+\\*$"))
+         ("magit" (name . "^magit: "))
+         ("firefox" (name . "Mozilla Firefox$")))))
+
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
