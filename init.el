@@ -152,13 +152,6 @@
 (setq shr-width 75)
 
 
-;; Shut off pronounce for sdcv
-(require 'sdcv)
-(setq sdcv-word-pronounce nil)
-(global-set-key (kbd "<f11>") 'sdcv-search-input)
-(global-set-key (kbd "<f10>") 'sdcv-search-pointer)
-
-
 ;; need to fix this so I don't have to specify particular files
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
