@@ -46,6 +46,7 @@
          ("emacs" (name . "^\\*[A-Za-z-]+\\*$"))
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
                        (filename . ".*")))
+         ("pdf-view" (mode . pdf-view-mode))
          ("firefox" (name . "Mozilla Firefox$")))))
 
 (add-hook 'ibuffer-mode-hook
