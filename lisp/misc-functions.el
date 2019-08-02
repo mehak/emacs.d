@@ -59,12 +59,15 @@
   (apply (if (called-interactively-p 'any) #'funcall-interactively #'funcall)
          #'load-theme args))
 
+
 ;; I actually wrote this one myself, so I guess the license applies?
+;; TODO add input for which month or how many months to show
 (defun show-cal ()
   "Show the current month's calendar in a notification window"
   (interactive)
-  (let* ((cal (shell-command-to-string "cal"))
-         (command (concat
-                   "notify-send "
-                   (shell-quote-argument cal))))
-    (shell-command command)))
+  (let ((cal (shell-command-to-string "cal")))
+    (start-process
+     "show-calendar"
+     nil
+     "/usr/bin/notify-send"
+     cal)))
