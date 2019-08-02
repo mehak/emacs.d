@@ -58,3 +58,13 @@
   (mapcar #'disable-theme custom-enabled-themes)
   (apply (if (called-interactively-p 'any) #'funcall-interactively #'funcall)
          #'load-theme args))
+
+;; I actually wrote this one myself, so I guess the license applies?
+(defun show-cal ()
+  "Show the current month's calendar in a notification window"
+  (interactive)
+  (let* ((cal (shell-command-to-string "cal"))
+         (command (concat
+                   "notify-send "
+                   (shell-quote-argument cal))))
+    (shell-command command)))
