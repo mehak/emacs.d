@@ -27,7 +27,6 @@
 
 ;; ivy-rich
 (require 'ivy-rich)
-(ivy-rich-mode 1)
 
 ;; Rebind M-x to counsel-M-x
 (global-set-key "\M-x" 'counsel-M-x)
@@ -69,3 +68,6 @@
         (:columns
          ((ivy-rich-candidate (:width 0.8))
           (ivy-rich-file-last-modified-time (:face font-lock-comment-face))))))
+
+;; Enable ivy-rich mode after defining column transformers
+(ivy-rich-mode 1)
