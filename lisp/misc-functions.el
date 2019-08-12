@@ -1,7 +1,4 @@
 ;;; -*- lexical-binding: t -*-
-;; Neither of these are my code, so the copyright/license doesn't apply
-
-
 (defun mehak/major-mode-or-class ()
   "Returns the major mode or EXWM class"
   (if (string-equal major-mode "exwm-mode")
@@ -48,6 +45,7 @@
     (delete-region start end)
     (insert insertion)
     (when arg (forward-char (length insertion)))))
+
 
 ;; Thanks to pkkm
 ;; https://www.reddit.com/r/emacs/comments/72ukrx/theme_preferences/dnmgcef?utm_source=share&utm_medium=web2x
