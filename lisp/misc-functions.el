@@ -68,9 +68,19 @@
 (defun show-cal ()
   "Show the current month's calendar in a notification window"
   (interactive)
-  (let ((cal (shell-command-to-string "cal")))
+  (let ((cal (shell-command-to-string "cal"))
+        (day-of-month (replace-regexp-in-string "\n"
+                                                ""
+                                                (shell-command-to-string "date '+%d'"))))
+    (setq cal
+          (replace-regexp-in-string day-of-month
+                                    (concat "<i><b>"
+                                            day-of-month
+                                            "</b></i>")
+                                    cal))
     (start-process
      "show-calendar"
      nil
      "/usr/bin/notify-send"
+     " "
      cal)))
