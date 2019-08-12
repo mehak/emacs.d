@@ -9,7 +9,7 @@
     (format "%s" mode-name)))
 
 
-;; TODO: Properly attribute these functions
+;; TODO: Properly attribute this function
 ;; Toggle window split
 (defun toggle-window-split ()
   (interactive)
@@ -37,6 +37,7 @@
           (if this-win-2nd (other-window 1))))))
 
 
+;; TODO: Properly attribute this function
 ;; Join as comma separated list
 (defun lines-to-cslist (start end &optional arg)
   (interactive "r\nP")
