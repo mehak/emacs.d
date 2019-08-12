@@ -1,9 +1,4 @@
 ;;; -*- lexical-binding: t -*-
-(defun mehak/major-mode-or-class ()
-  "Returns the major mode or EXWM class"
-  (if (string-equal major-mode "exwm-mode")
-      (format "%s" exwm-class-name)
-    (format "%s" mode-name)))
 
 
 ;; TODO: Properly attribute this function
@@ -57,6 +52,15 @@
   (mapcar #'disable-theme custom-enabled-themes)
   (apply (if (called-interactively-p 'any) #'funcall-interactively #'funcall)
          #'load-theme args))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Anything I have written is below this point
+(defun mehak/major-mode-or-class ()
+  "Returns the major mode or EXWM class"
+  (if (string-equal major-mode "exwm-mode")
+      (format "%s" exwm-class-name)
+    (format "%s" mode-name)))
 
 
 ;; I actually wrote this one myself, so I guess the license applies?
