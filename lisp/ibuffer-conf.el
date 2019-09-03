@@ -40,6 +40,9 @@
               (name 16 -1)
               " " filename)))
 
+(defun mehak/ibuffer-exwm-match (match)
+  (equal (mehak/major-mode-or-class) match))
+
 (setq ibuffer-saved-filter-groups
       '(("default"
          ("erc" (mode . erc-mode))
@@ -47,7 +50,10 @@
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
                        (filename . ".*")))
          ("pdf-view" (mode . pdf-view-mode))
-         ("firefox" (name . "Mozilla Firefox$")))))
+         ("zoom" (predicate . (mehak/ibuffer-exwm-match "zoom")))
+         ("firefox" (predicate . (mehak/ibuffer-exwm-match "firefox"))))))
+
+(setq ibuffer-show-empty-filter-groups nil)
 
 (add-hook 'ibuffer-mode-hook
           (lambda ()
