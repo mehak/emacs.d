@@ -63,24 +63,28 @@
     (format "%s" mode-name)))
 
 
-;; I actually wrote this one myself, so I guess the license applies?
+;; This piece of ugliness is mine :-(, so the license applies
 ;; TODO add input for which month or how many months to show
 (defun show-cal ()
   "Show the current month's calendar in a notification window"
   (interactive)
   (let ((cal (shell-command-to-string "cal"))
-        (day-of-month (replace-regexp-in-string "\n"
-                                                ""
-                                                (shell-command-to-string "date '+%d'"))))
+        (day-of-month (replace-regexp-in-string "^0"
+                               ""
+                               (replace-regexp-in-string "\n"
+                                                 ""
+                                                 (shell-command-to-string "date '+%d'")))))
     (setq cal
-          (replace-regexp-in-string day-of-month
-                                    (concat "<i><b>"
+          (replace-regexp-in-string (concat " "
                                             day-of-month
-                                            "</b></i>")
+                                            " ")
+                                    (concat "<i><b> "
+                                            day-of-month
+                                            " </b></i>")
                                     cal))
-    (start-process
-     "show-calendar"
+    (start-process "show-calendar"
      nil
      "/usr/bin/notify-send"
-     " "
-     cal)))
+     "   Calendar"
+     cal)
+    (message "%s" cal)))
