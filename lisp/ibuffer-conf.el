@@ -45,6 +45,12 @@
 
 (setq ibuffer-saved-filter-groups
       '(("default"
+         ("lisp" (or (mode . lisp-mode)
+                     (mode . sly-mrepl-mode)
+                     (and (name . "^\*sly-*")
+                          (or (mode . comint-mode)
+                              (mode . fundamental-mode)
+                              (mode . compilation-mode)))))
          ("erc" (mode . erc-mode))
          ("emacs" (name . "^\\*[A-Za-z-]+\\*$"))
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
