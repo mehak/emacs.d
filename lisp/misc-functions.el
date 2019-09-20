@@ -61,30 +61,3 @@
   (if (string-equal major-mode "exwm-mode")
       (format "%s" exwm-class-name)
     (format "%s" mode-name)))
-
-
-;; This piece of ugliness is mine :-(, so the license applies
-;; TODO add input for which month or how many months to show
-(defun show-cal ()
-  "Show the current month's calendar in a notification window"
-  (interactive)
-  (let ((cal (shell-command-to-string "cal"))
-        (day-of-month (replace-regexp-in-string "^0"
-                               ""
-                               (replace-regexp-in-string "\n"
-                                                 ""
-                                                 (shell-command-to-string "date '+%d'")))))
-    (setq cal
-          (replace-regexp-in-string (concat " "
-                                            day-of-month
-                                            " ")
-                                    (concat "<i><b> "
-                                            day-of-month
-                                            " </b></i>")
-                                    cal))
-    (start-process "show-calendar"
-     nil
-     "/usr/bin/notify-send"
-     "   Calendar"
-     cal)
-    (message "%s" cal)))
