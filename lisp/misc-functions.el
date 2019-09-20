@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
-
-;; TODO: Properly attribute this function
+;; Thanks to Jeff Dwork
+;; https://www.emacswiki.org/emacs/ToggleWindowSplit
 ;; Toggle window split
 (defun toggle-window-split ()
   (interactive)
@@ -29,7 +29,7 @@
           (if this-win-2nd (other-window 1))))))
 
 
-;; TODO: Properly attribute this function
+;; https://stackoverflow.com/a/17923238
 ;; Join as comma separated list
 (defun lines-to-cslist (start end &optional arg)
   (interactive "r\nP")
