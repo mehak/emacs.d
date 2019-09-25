@@ -72,9 +72,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 75)
 
-;; Make ibuffer default
-(global-set-key "\C-x\C-b" 'ibuffer)
-
 ;; Save mini-buffer
 (savehist-mode 1)
 
@@ -171,6 +168,7 @@
 (load "term-conf")
 (load "sdcv-conf")
 (load "emojify-conf")
+(load "njm-keybindings")
 
 
 (eshell)

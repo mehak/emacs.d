@@ -28,13 +28,6 @@
 ;; ivy-rich
 (require 'ivy-rich)
 
-;; Rebind M-x to counsel-M-x
-(global-set-key "\M-x" 'counsel-M-x)
-;; Rebind C-h f to counsel-describe-function
-(global-set-key "\C-hf" 'counsel-describe-function)
-;; Rebind C-h v to counsel-describe-variable
-(global-set-key "\C-hv" 'counsel-describe-variable)
-
 ;; Show EXWM class or major mode
 (defun mehak/ivy-rich-switch-buffer-major-mode (candidate)
   (with-current-buffer

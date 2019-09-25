@@ -2,7 +2,6 @@
 
 ;; Show trailing whitespace and remove it easily
 (setq-default show-trailing-whitespace t)
-(global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
 
 ;; https://emacs.stackexchange.com/a/40649
 (defun hide-trailing-whitespace-for-modes ()

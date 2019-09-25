@@ -20,20 +20,7 @@
   :ensure t
   :after evil-collection
   :init
-  :config
-  (define-key evil-motion-state-map (kbd "SPC") nil)
-  (global-evil-leader-mode)
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "xf" 'find-file
-    "xb" 'ivy-switch-buffer
-    "xg" 'magit-status
-    ";" 'eval-expression
-    "d" 'kill-whole-line
-    "h?" 'help-for-help
-    "hw" 'where-is
-    "hf" 'counsel-describe-function
-    "hk" 'describe-key))
+  :config)
 
 ;; evil-magit
 (require 'evil-magit)
