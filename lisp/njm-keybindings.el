@@ -33,3 +33,4 @@
 
 ;;; Misc task bindings
 (global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
+(global-set-key (kbd "<print>") 'mehak/screenshot)

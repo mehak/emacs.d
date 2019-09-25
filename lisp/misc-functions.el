@@ -61,3 +61,16 @@
   (if (string-equal major-mode "exwm-mode")
       (format "%s" exwm-class-name)
     (format "%s" mode-name)))
+
+
+;; TODO add option for taking full screen screenshots
+(defun mehak/screenshot (filename)
+  "Takes a variable sized screenshot"
+  (interactive
+   (let ((default-filename (format "/tmp/vm/screenshot-%s.jpg"
+                                   (time-to-seconds (current-time)))))
+     (list (read-string (format "Filename [%s]: " default-filename)
+                        nil
+                        nil
+                        default-filename))))
+  (call-process "/usr/bin/import" nil nil nil filename))
