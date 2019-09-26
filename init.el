@@ -168,6 +168,9 @@
 (load "term-conf")
 (load "sdcv-conf")
 (load "emojify-conf")
+(load "documentation")
+;; Make sure to load this last
+;; TODO move to general.el
 (load "njm-keybindings")
 
 
