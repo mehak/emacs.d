@@ -23,33 +23,6 @@
 (add-hook 'exwm-update-title-hook 'mehak/exwm-update-buffer-name)
 
 
-;; 's-r': Reset
-(exwm-input-set-key (kbd "s-r") #'exwm-reset)
-;; 's-w': Switch workspace
-(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
-;; 's-N': Switch to certain workspace
-(dotimes (i 10)
-  (exwm-input-set-key (kbd (format "s-%d" i))
-                      `(lambda ()
-                         (interactive)
-                         (exwm-workspace-switch-create ,i))))
-;; 's-&': Launch application
-(exwm-input-set-key (kbd "s-&")
-                    (lambda (command)
-                      (interactive (list (read-shell-command "$ ")))
-                      (start-process-shell-command command nil command)))
-;; Line-editing shortcuts
-(setq exwm-input-simulation-keys
-      '(([?\C-b] . [left])
-        ([?\C-f] . [right])
-        ([?\C-p] . [up])
-        ([?\C-n] . [down])
-        ([?\C-a] . [home])
-        ([?\C-e] . [end])
-        ([?\M-v] . [prior])
-        ([?\C-v] . [next])
-        ([?\C-d] . [delete])
-        ([?\C-k] . [S-end delete])))
 ;; show all buffers and allow moving windows from inactive workspace
 (setq exwm-workspace-show-all-buffers t)
 (setq exwm-layout-show-all-buffers t)
@@ -64,13 +37,6 @@
           (exwm-input-char-mode)
         (exwm-input-line-mode)))))
 
-(exwm-input-set-key (kbd "s-i")
-                    (lambda () (interactive)
-                      (exwm-input-toggle-mode)))
-(exwm-input-set-key (kbd "s-l")
-                    (lambda ()
-                      (interactive)
-                      (start-process-shell-command "/usr/bin/slock" nil "/usr/bin/slock")))
 
 ;; Enable EXWM
 (exwm-enable)

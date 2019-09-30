@@ -33,4 +33,45 @@
 
 ;;; Misc task bindings
 (global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
-(global-set-key (kbd "<print>") 'mehak/screenshot)
+
+
+;; EXWM
+;; I use the commands because setting exwm-input-(global|simulation)-keys
+;; doesn't seem to work properly (or immediately)
+;; Line-editing shortcuts for simulation keys
+(exwm-input-set-simulation-key [?\C-b] [left])
+(exwm-input-set-simulation-key [?\C-f] [right])
+(exwm-input-set-simulation-key [?\C-p] [up])
+(exwm-input-set-simulation-key [?\C-n] [down])
+(exwm-input-set-simulation-key [?\C-a] [home])
+(exwm-input-set-simulation-key [?\C-e] [end])
+(exwm-input-set-simulation-key [?\M-v] [prior])
+(exwm-input-set-simulation-key [?\C-v] [next])
+(exwm-input-set-simulation-key [?\C-d] [delete])
+(exwm-input-set-simulation-key [?\C-k] [S-end delete])
+
+;; Global keys
+(exwm-input-set-key (kbd "s-r") #'exwm-reset)
+(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+(exwm-input-set-key (kbd "s-s") #'mehak/screenshot)
+(exwm-input-set-key (kbd "<print>") #'mehak/screenshot)
+;; 's-&': Launch application
+(exwm-input-set-key (kbd "s-&")
+                    (lambda (command)
+                      (interactive (list (read-shell-command "$ ")))
+                      (start-process-shell-command command nil command)))
+;; Toggle line-mode/char-mode
+(exwm-input-set-key (kbd "s-i")
+                    (lambda () (interactive)
+                      (exwm-input-toggle-mode)))
+;; Lock screen
+(exwm-input-set-key (kbd "s-l")
+                    (lambda ()
+                      (interactive)
+                      (start-process-shell-command "/usr/bin/slock" nil "/usr/bin/slock")))
+;; 's-N': Switch to certain workspace
+(dotimes (i 10)
+  (exwm-input-set-key (kbd (format "s-%d" i))
+                      `(lambda ()
+                         (interactive)
+                         (exwm-workspace-switch-create ,i))))
