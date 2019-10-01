@@ -10,4 +10,7 @@
  erc-nick "mehak"
  erc-server "i.b1n.win"
  erc-port 6697
- erc-fill-column 80)
+ erc-fill-column 140
+ erc-timestamp-only-if-changed-flag nil
+ erc-timestamp-format "[%Y-%m-%d %H:%M]"
+ erc-insert-timestamp-function 'erc-insert-timestamp-left)
