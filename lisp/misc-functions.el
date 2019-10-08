@@ -67,10 +67,8 @@
 (defun mehak/screenshot (filename)
   "Takes a variable sized screenshot"
   (interactive
-   (let ((default-filename (format "/tmp/vm/screenshot-%s.jpg"
-                                   (time-to-seconds (current-time)))))
-     (list (read-string (format "Filename [%s]: " default-filename)
-                        nil
-                        nil
-                        default-filename))))
+   (list (read-file-name "Path: "
+                         "/tmp/vm/"
+                         (format "screenshot-%s.jpg"
+                                 (time-to-seconds (current-time))))))
   (call-process "/usr/bin/import" nil nil nil filename))
