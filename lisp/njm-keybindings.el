@@ -6,6 +6,8 @@
 (global-set-key "\C-hf" 'counsel-describe-function)
 (global-set-key "\C-hv" 'counsel-describe-variable)
 
+;;; Misc task bindings
+(global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
 
 ;;; SDCV keys
 (global-set-key (kbd "<f11>") 'sdcv-search-input)
@@ -28,33 +30,34 @@
   "h?" 'help-for-help
   "hw" 'where-is
   "hf" 'counsel-describe-function
-  "hk" 'describe-key)
-
-
-;;; Misc task bindings
-(global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
+  "hk" 'describe-key
+  "c" 'calendar)
 
 
 ;; EXWM
 ;; I use the commands because setting exwm-input-(global|simulation)-keys
 ;; doesn't seem to work properly (or immediately)
 ;; Line-editing shortcuts for simulation keys
-(exwm-input-set-simulation-key [?\C-b] [left])
-(exwm-input-set-simulation-key [?\C-f] [right])
-(exwm-input-set-simulation-key [?\C-p] [up])
-(exwm-input-set-simulation-key [?\C-n] [down])
-(exwm-input-set-simulation-key [?\C-a] [home])
-(exwm-input-set-simulation-key [?\C-e] [end])
-(exwm-input-set-simulation-key [?\M-v] [prior])
-(exwm-input-set-simulation-key [?\C-v] [next])
-(exwm-input-set-simulation-key [?\C-d] [delete])
-(exwm-input-set-simulation-key [?\C-k] [S-end delete])
+(dolist (key-spec
+         '(([?\C-b] . [left])
+           ([?\C-f] . [right])
+           ([?\C-p] . [up])
+           ([?\C-n] . [down])
+           ([?\C-a] . [home])
+           ([?\C-e] . [end])
+           ([?\M-v] . [prior])
+           ([?\C-v] . [next])
+           ([?\C-d] . [delete])
+           ([?\C-k] . [S-end delete])))
+  (exwm-input-set-simulation-key (car key-spec) (cdr key-spec)))
 
 ;; Global keys
-(exwm-input-set-key (kbd "s-r") #'exwm-reset)
-(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
-(exwm-input-set-key (kbd "s-s") #'mehak/screenshot)
-(exwm-input-set-key (kbd "<print>") #'mehak/screenshot)
+(dolist (key-spec
+         '(("s-r" . #'exwm-reset)
+           ("s-w" . #'exwm-workspace-switch)
+           ("s-s" . #'mehak/screenshot)
+           ("<print>" . #'mehak/screenshot)))
+  (exwm-input-set-key (kbd (car key-spec)) (cdr key-spec)))
 ;; 's-&': Launch application
 (exwm-input-set-key (kbd "s-&")
                     (lambda (command)
