@@ -64,11 +64,11 @@
 
 
 ;; TODO add option for taking full screen screenshots
-(defun mehak/screenshot (filename)
   "Takes a variable sized screenshot"
+(defun mehak/screenshot (path)
   (interactive
    (list (read-file-name "Path: "
                          "/tmp/vm/"
                          (format "screenshot-%s.jpg"
                                  (time-to-seconds (current-time))))))
-  (call-process "/usr/bin/import" nil nil nil filename))
+  (call-process "/usr/bin/import" nil nil nil path))
