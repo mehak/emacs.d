@@ -64,8 +64,12 @@
 
 
 ;; TODO add option for taking full screen screenshots
-  "Takes a variable sized screenshot"
 (defun mehak/screenshot (path)
+  "Takes a variable sized screenshot.
+Used to take a screenshot named PATH of a size defined by the user.
+
+PATH may be any user defined path but defaults to
+/tmp/vm/screenshot-%s.jpg where %s is the time-to-seconds of current-time."
   (interactive
    (list (read-file-name "Path: "
                          "/tmp/vm/"
