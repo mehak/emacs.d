@@ -71,6 +71,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;;  TODO figure out how to put the ip address in a variable for looks
+;;       maybe something like ip-address-mode-line
 (setq-default
  mode-line-format
  '("%e"
@@ -82,4 +84,8 @@
    minions-mode-line-modes
    mode-line-misc-info
    mode-line-buffer-identification
+   (:eval (propertize
+           (format " %s " (mehak/bond0-ip))
+           'face
+           `(:foreground "sienna")))
    mode-line-end-spaces))
