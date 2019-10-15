@@ -76,3 +76,9 @@ PATH may be any user defined path but defaults to
                          (format "screenshot-%s.jpg"
                                  (time-to-seconds (current-time))))))
   (call-process "/usr/bin/import" nil nil nil path))
+(defun mehak/pwd ()
+  "Shows the present working directory with $HOME replaced with ~"
+  (replace-regexp-in-string
+   (concat "^" (getenv "HOME"))
+   "~"
+   (eshell/pwd)))
