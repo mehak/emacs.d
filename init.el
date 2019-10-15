@@ -153,10 +153,10 @@
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/vendor/")
+(load "misc-functions")
 (load "trailing-whitespace-conf")
 (load "evil-conf")
 (load "alert-conf")
-(load "misc-functions")
 (load "exwm-conf")
 (load "eshell-conf")
 (load "ibuffer-conf")
