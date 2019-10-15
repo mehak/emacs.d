@@ -28,6 +28,20 @@
          (propertize (mehak/pwd) 'face `(:foreground "tan"))
          (propertize "]\n" 'face `(:foreground "green")))))
 
+(setq eshell-visual-commands
+      '("vi"
+        "screen"
+        "top"
+        "less"
+        "more"
+        "lynx"
+        "ncftp"
+        "pine"
+        "tin"
+        "trn"
+        "elm"
+        "watch"))
+
 ;; copy and paste these for now :-(
 ;; for key in ~/.ssh/*.pub { ssh-add $(file-name-sans-extension key) }
 ;; for key in ~/.ssh/dst/*.pub { ssh-add $(file-name-sans-extension key) }
