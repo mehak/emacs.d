@@ -76,6 +76,13 @@ PATH may be any user defined path but defaults to
                          (format "screenshot-%s.jpg"
                                  (time-to-seconds (current-time))))))
   (call-process "/usr/bin/import" nil nil nil path))
+
+
+;; Add command for creating new eshell buffers
+(defun eshell-new()
+  "Open a new instance of eshell."
+  (interactive)
+  (eshell 'N))
 (defun mehak/pwd ()
   "Shows the present working directory with $HOME replaced with ~"
   (replace-regexp-in-string
