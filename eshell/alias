@@ -1,0 +1,4 @@
+alias ssh njm-eshell-noop ssh $1
+alias vim find-file $1
+alias vi find-file $1
+alias ff for i in ${eshell-flatten-list $*} {find-file $i}
