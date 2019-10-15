@@ -83,9 +83,18 @@ PATH may be any user defined path but defaults to
   "Open a new instance of eshell."
   (interactive)
   (eshell 'N))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;; used in eshell-conf
 (defun mehak/pwd ()
   "Shows the present working directory with $HOME replaced with ~"
   (replace-regexp-in-string
    (concat "^" (getenv "HOME"))
    "~"
    (eshell/pwd)))
+
+;; Map over commands that don't work well with eshell
+(defun mehak/eshell/noop (name &rest rest)
+  (message "%s called with: %s" name rest))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 

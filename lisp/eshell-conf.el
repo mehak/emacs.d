@@ -1,4 +1,6 @@
 ;;; -*- lexical-binding: t -*-
+
+
 ;; Nice aliases for find-file
 (defalias 'open 'find-file)
 (defalias 'openo 'find-file-other-window)
@@ -7,9 +9,6 @@
 (defalias 'vi 'find-file)
 (defalias 'vim 'find-file)
 
-;; Map over commands that don't work well with eshell
-(defun njm-eshell-noop (name &rest rest)
-  (message "%s called with: %s" name rest))
 
 ;; use ivy for tab completion
 (add-hook 'eshell-mode-hook '(lambda ()
@@ -19,7 +18,6 @@
                                  'completion-at-point)))
 
 (setq eshell-history-size 999999)
-
 
 (setq eshell-prompt-function
       (lambda ()
