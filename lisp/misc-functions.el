@@ -62,6 +62,18 @@
       (format "%s" exwm-class-name)
     (format "%s" mode-name)))
 
+(defun mehak/reset-buffers-mode-line ()
+  "This function resets all buffers' mode lines to the default mode-line-format"
+  (interactive)
+  (let ((lb (buffer-list)))
+    (mapcar
+     (lambda (buffer)
+       (with-current-buffer
+           (get-buffer buffer)
+         (setq mode-line-format
+               (default-value
+                 'mode-line-format))))
+     lb)))
 
 ;; TODO add option for taking full screen screenshots
 (defun mehak/screenshot (path)
@@ -76,7 +88,6 @@ PATH may be any user defined path but defaults to
                          (format "screenshot-%s.jpg"
                                  (time-to-seconds (current-time))))))
   (call-process "/usr/bin/import" nil nil nil path))
-
 
 ;; Add command for creating new eshell buffers
 (defun eshell-new()
