@@ -98,3 +98,17 @@ PATH may be any user defined path but defaults to
 (defun mehak/eshell/noop (name &rest rest)
   (message "%s called with: %s" name rest))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;; used in modeline
+(defun mehak/bond0-ip ()
+  "Shows current ip assigned to bond0"
+  (or (format-network-address
+    (first
+     (network-interface-info
+      "bond0"))
+    "omit-port")
+      "no ip"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+
