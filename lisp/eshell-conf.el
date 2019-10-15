@@ -11,10 +11,6 @@
 (defun njm-eshell-noop (name &rest rest)
   (message "%s called with: %s" name rest))
 
-;; (eshell/alias "ssh" "njm-eshell-noop ssh $1")
-;; (eshell/alias "vi" "find-file $1")
-;; (eshell/alias "vim" "find-file $1")
-
 ;; use ivy for tab completion
 (add-hook 'eshell-mode-hook '(lambda ()
                                (define-key
