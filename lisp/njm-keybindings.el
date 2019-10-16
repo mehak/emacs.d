@@ -53,10 +53,10 @@
 
 ;; Global keys
 (dolist (key-spec
-         '(("s-r" . #'exwm-reset)
-           ("s-w" . #'exwm-workspace-switch)
-           ("s-s" . #'mehak/screenshot)
-           ("<print>" . #'mehak/screenshot)))
+         '(("s-r" . exwm-reset)
+           ("s-w" . exwm-workspace-switch)
+           ("s-s" . mehak/screenshot)
+           ("<print>" . mehak/screenshot)))
   (exwm-input-set-key (kbd (car key-spec)) (cdr key-spec)))
 ;; 's-&': Launch application
 (exwm-input-set-key (kbd "s-&")
