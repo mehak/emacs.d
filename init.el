@@ -170,6 +170,7 @@
 (load "emojify-conf")
 (load "documentation")
 (load "dired-conf")
+(load "tiny-conf")
 ;; Make sure to load this last
 ;; TODO move to general.el
 (load "njm-keybindings")
