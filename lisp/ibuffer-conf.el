@@ -46,13 +46,16 @@
 (setq ibuffer-saved-filter-groups
       '(("default"
          ("lisp" (or (mode . lisp-mode)
+                     (mode . emacs-lisp-mode)
                      (mode . sly-mrepl-mode)
                      (and (name . "^\*sly-*")
                           (or (mode . comint-mode)
                               (mode . fundamental-mode)
                               (mode . compilation-mode)))))
+         ("haskell" (or (mode . haskell-mode)
+                        (mode . literate-haskell-mode)))
          ("erc" (mode . erc-mode))
-         ("emacs" (name . "^\\*[A-Za-z-]+\\*$"))
+         ("emacs" (name . "^\\*[ A-Za-z-]+\\*\\(<[0-9]+>\\)?$"))
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
                        (filename . ".*")))
          ("pdf-view" (mode . pdf-view-mode))
