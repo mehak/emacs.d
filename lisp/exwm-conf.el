@@ -64,7 +64,6 @@
 ;; s-[1-9] should switch between workspaces 1-9 on top
 ;; and it should switch between workspaces 11-19 on bottom
 (defun exwm-change-screen-hook ()
-  (message "exwm change screen hook called")
   (let ((xrandr-output-regexp "\n\\([^ ]+\\) connected ")
         first-match-point
         default-output)
