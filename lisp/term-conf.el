@@ -16,4 +16,4 @@
 (define-key term-mode-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
 (define-key term-raw-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
 
-(setq term-suprress-hard-newline t)
+(setq term-suppress-hard-newline t)
