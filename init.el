@@ -148,6 +148,10 @@
 ;; Set eww line width
 (setq shr-width 75)
 
+;; Move tooltips to the echo line
+(tooltip-mode -1)
+(setq tooltip-mode nil)
+
 
 ;; need to fix this so I don't have to specify particular files
 ;; and/or lazy load stuff
