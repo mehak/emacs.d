@@ -1,5 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 
+;;; Thanks to Dr. Aaron S. Jackson
+(defun shrug ()
+  "shrugs"
+  (interactive)
+  (insert "¯\\_(ツ)_/¯"))
+
 ;; Thanks to Jeff Dwork
 ;; https://www.emacswiki.org/emacs/ToggleWindowSplit
 ;; Toggle window split
