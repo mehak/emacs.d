@@ -9,6 +9,9 @@
 (defalias 'vi 'find-file)
 (defalias 'vim 'find-file)
 
+;; slightly shorter clear1
+(defalias 'clr1 '(lambda ()
+                   (eshell/clear 1)))
 
 ;; use ivy for tab completion
 (add-hook 'eshell-mode-hook '(lambda ()
