@@ -176,6 +176,7 @@
 (load "dired-conf")
 (load "tiny-conf")
 (load "proced-conf")
+(load "purescript-conf")
 ;; Make sure to load this last
 ;; TODO move to general.el
 (load "njm-keybindings")
