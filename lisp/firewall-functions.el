@@ -5,7 +5,7 @@
 ;; TODO re-factor to make more clear
 (defun get-firewall-conf (firewall configuration-file)
   "Connect to firewall, grab configuration and copy it to configuration-file"
-  (interactive "sFirewall IP: \nBConfiguration File: ")
+  (interactive "sFirewall IP: \nFConfiguration File: ")
   (require 'term)
   (let* ((cmd "/usr/bin/ssh")
          (args firewall)
