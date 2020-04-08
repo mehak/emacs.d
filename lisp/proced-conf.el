@@ -4,4 +4,6 @@
 (defun proced-settings ()
   (proced-toggle-auto-update))
 
-(add-hook 'proced-mode-hook 'proced-settings)
+;; Uncomment below for auto-updating proced
+;; (add-hook 'proced-mode-hook 'proced-settings)
+;; (remove-hook 'proced-mode-hook 'proced-settings)
