@@ -102,7 +102,7 @@ PATH may be any user defined path but defaults to
   (eshell 'N))
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; used in eshell-conf
 (defun mehak/pwd ()
   "Shows the present working directory with $HOME replaced with ~"
@@ -114,10 +114,10 @@ PATH may be any user defined path but defaults to
 ;; Map over commands that don't work well with eshell
 (defun mehak/eshell/noop (name &rest rest)
   (message "%s called with: %s" name rest))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; used in modeline
 (defun mehak/bond0-ip ()
   "Shows current ip assigned to bond0"
@@ -127,5 +127,42 @@ PATH may be any user defined path but defaults to
       "bond0"))
     "omit-port")
       "no ip"))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FUNction to enlarge ascii art
+(defun magnify-ascii-art (ascii-art magnification-value)
+  "Given ascii-art and magnification-value, enlarge image by
+magnification value"
+  (with-temp-buffer
+    (insert ascii-art)
+    (delete-trailing-whitespace)
+    (goto-char (point-min))
+    ;; Works on x dimension
+    (replace-regexp "."
+                    (apply 'concat
+                           (make-list
+                            magnification-value
+                            "\\&")))
+    ;; The rest of this is to operate on the y dimension
+    (goto-char (point-max))
+    (beginning-of-line)
+    (while (> (point) (point-min))
+      (point-to-register ?z)
+      (replace-regexp "^.*$"
+                      (apply 'concat
+                             (mapcar* 'concat
+                                      (make-list
+                                       magnification-value
+                                       "\\&")
+                                      (append (make-list
+                                               (- magnification-value 1)
+                                               "\n")
+                                              '(""))))
+                      nil
+                      (line-beginning-position)
+                      (line-end-position))
+      (jump-to-register ?z)
+      (forward-line -1))
+    (buffer-string)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
