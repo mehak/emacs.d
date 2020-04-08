@@ -135,34 +135,25 @@ PATH may be any user defined path but defaults to
   "Given ascii-art and magnification-value, enlarge image by
 magnification value"
   (with-temp-buffer
-    (insert ascii-art)
-    (delete-trailing-whitespace)
-    (goto-char (point-min))
-    ;; Works on x dimension
-    (replace-regexp "."
-                    (apply 'concat
-                           (make-list
-                            magnification-value
-                            "\\&")))
-    ;; The rest of this is to operate on the y dimension
-    (goto-char (point-max))
-    (beginning-of-line)
-    (while (> (point) (point-min))
-      (point-to-register ?z)
-      (replace-regexp "^.*$"
-                      (apply 'concat
-                             (mapcar* 'concat
-                                      (make-list
-                                       magnification-value
-                                       "\\&")
-                                      (append (make-list
-                                               (- magnification-value 1)
-                                               "\n")
-                                              '(""))))
-                      nil
-                      (line-beginning-position)
-                      (line-end-position))
-      (jump-to-register ?z)
-      (forward-line -1))
-    (buffer-string)))
+    (let ((copy-character (apply 'concat
+                                 (make-list
+                                  magnification-value
+                                  "\\&")))
+          (copy-line (apply 'concat
+                            (mapcar* 'concat
+                                     (make-list
+                                      magnification-value
+                                      "\\&")
+                                     (append (make-list
+                                              (- magnification-value 1)
+                                              "\n")
+                                             '(""))))))
+      (insert ascii-art)
+      (goto-char (point-min))
+      (flush-lines "^$")
+      (goto-char (point-min))
+      (replace-regexp "." copy-character)
+      (goto-char (point-min))
+      (replace-regexp "^.*$" copy-line)
+      (buffer-string))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
