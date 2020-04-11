@@ -130,6 +130,28 @@ PATH may be any user defined path but defaults to
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Used to lock computer and shutoff the screen
+(defun mehak/lock-computer ()
+  "Locks the computer and shuts off the screens"
+  (interactive)
+  (message "shutting off the monitors and locking the computer")
+  (sleep-for 1.0)
+  (call-process
+   "/usr/bin/xset"
+   nil
+   nil
+   t
+   "dpms" "force" "off")
+  (let ((slock-process
+         (start-process "slock" nil "/usr/bin/slock")))
+    (set-process-sentinel
+     slock-process
+     (lambda (process event)
+       (if (equal event "finished\n")
+           (exwm-change-screen-hook))))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enlarge banner output
 (defun magnify-banner (banner-output magnification-value)
   "Given banner-output and magnification-value, enlarge image by

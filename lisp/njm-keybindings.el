@@ -56,7 +56,8 @@
          '(("s-r" . exwm-reset)
            ("s-w" . exwm-workspace-switch)
            ("s-s" . mehak/screenshot)
-           ("<print>" . mehak/screenshot)))
+           ("<print>" . mehak/screenshot)
+           ("s-l" . mehak/lock-computer)))
   (exwm-input-set-key (kbd (car key-spec)) (cdr key-spec)))
 ;; 's-&': Launch application
 (exwm-input-set-key (kbd "s-&")
@@ -67,11 +68,6 @@
 (exwm-input-set-key (kbd "s-i")
                     (lambda () (interactive)
                       (exwm-input-toggle-mode)))
-;; Lock screen
-(exwm-input-set-key (kbd "s-l")
-                    (lambda ()
-                      (interactive)
-                      (start-process-shell-command "/usr/bin/slock" nil "/usr/bin/slock")))
 ;; 's-N': Switch to certain workspace
 (dotimes (i 10)
   (exwm-input-set-key (kbd (format "s-%d" i))
