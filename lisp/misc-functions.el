@@ -130,9 +130,9 @@ PATH may be any user defined path but defaults to
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; FUNction to enlarge ascii art
-(defun magnify-ascii-art (ascii-art magnification-value)
-  "Given ascii-art and magnification-value, enlarge image by
+;; Enlarge banner output
+(defun magnify-banner (banner-output magnification-value)
+  "Given banner-output and magnification-value, enlarge image by
 magnification value"
   (with-temp-buffer
     (let ((copy-character (apply 'concat
@@ -148,7 +148,7 @@ magnification value"
                                               (- magnification-value 1)
                                               "\n")
                                              '(""))))))
-      (insert ascii-art)
+      (insert banner-output)
       (goto-char (point-min))
       (flush-lines "^$")
       (goto-char (point-min))
