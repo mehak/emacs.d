@@ -48,15 +48,18 @@
   "Only show the default display"
   (goto-char first-match-point)
   (let ((regex "\n\\([^ ]+\\)")
-        (xrandr-arguments `("--output" ,default-display "--auto")))
+        (xrandr-arguments `("--output" ,default-display "--auto"))
+        xrandr-command)
     (while (re-search-forward regex nil 'noerror)
       (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
           (setq xrandr-arguments
                 (append xrandr-arguments
                         `("--output" ,(match-string 1) "--auto")))))
-    (apply 'call-process
-           (append '("xrandr" nil nil nil)
-                   xrandr-arguments))))
+    (setq xrandr-command
+          (append '("/usr/bin/xrandr" nil nil t)
+                  xrandr-arguments))
+    (message "xrandr-command: %s" xrandr-command)
+    (apply 'call-process xrandr-command)))
 
 ;; Using the below requires refactoring a couple things
 ;; Eventual goal is workspaces 1-9 on "top" screen
@@ -66,7 +69,8 @@
 (defun exwm-change-screen-hook ()
   (let ((xrandr-output-regexp "\n\\([^ ]+\\) connected ")
         first-match-point
-        default-output)
+        default-output
+        xrandr-command-multiple-monitors)
     (with-temp-buffer
       (call-process "xrandr" nil t nil)
       (goto-char (point-min))
@@ -76,10 +80,20 @@
       (forward-line)
       (if (not (re-search-forward xrandr-output-regexp nil 'noerror))
           (njm/exwm/default-only default-output first-match-point)
-        (call-process
-         "xrandr" nil nil nil
-         "--output" (match-string 1) "--auto"
-         "--output" default-output "--auto" "--below" (match-string 1))
+        (progn
+          (setq xrandr-command-multiple-monitors
+                (append '("/usr/bin/xrandr" nil nil t)
+                        `("--output"
+                          ,(match-string 1)
+                          "--auto"
+                          "--output"
+                          ,default-output
+                          "--auto"
+                          "--below"
+                          ,(match-string 1))))
+          (message "xrandr-command: %s"
+                   xrandr-command-multiple-monitors)
+          (apply 'call-process xrandr-command-multiple-monitors))
         (setq exwm-randr-workspace-monitor-plist (list 1 (match-string 1)))))))
 
 (add-hook 'exwm-randr-screen-change-hook 'exwm-change-screen-hook)
