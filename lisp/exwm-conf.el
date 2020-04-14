@@ -48,7 +48,7 @@
   "Only show the default display"
   (goto-char first-match-point)
   (let ((regex "\n\\([^ ]+\\)")
-        (xrandr-arguments `("--output" ,default-display "--auto"))
+        (xrandr-arguments `("--output" ,default-display "--auto" "--dpi" ,default-display))
         xrandr-command)
     (while (re-search-forward regex nil 'noerror)
       (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
@@ -90,6 +90,8 @@
                           ,default-output
                           "--auto"
                           "--below"
+                          ,(match-string 1)
+                          "--dpi"
                           ,(match-string 1))))
           (message "xrandr-command: %s"
                    xrandr-command-multiple-monitors)
