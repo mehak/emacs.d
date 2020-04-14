@@ -54,7 +54,7 @@
       (if (not (string-match "VIRTUAL[0-9]+" (match-string 1)))
           (setq xrandr-arguments
                 (append xrandr-arguments
-                        `("--output" ,(match-string 1) "--auto")))))
+                        `("--output" ,(match-string 1) "--off")))))
     (setq xrandr-command
           (append '("/usr/bin/xrandr" nil nil t)
                   xrandr-arguments))
