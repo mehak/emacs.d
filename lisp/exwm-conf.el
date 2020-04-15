@@ -2,8 +2,8 @@
 ;; EXWM configuration
 ;; Allow fucus to follow mouse
 ;; must be before ('require exwm)
-(setq mouse-autoselect-window 1
-      focus-follows-mouse 1)
+(setq mouse-autoselect-window t
+      focus-follows-mouse t)
 (require 'exwm)
 (require 'exwm-config)
 ;; the below is basically (exwm-config-default) minus ido
