@@ -40,6 +40,7 @@ buffer, close the firewall buffer, and clean up the configuration buffer"
               configuration-buffer)))))
     (set-buffer terminal-buffer)
     (term-mode)
+    (setq term-buffer-maximum-size 0)
     (comint-send-string process configuration-commands)))
 
 ;; Used to get the configuration from a palo alto firewall
