@@ -55,7 +55,7 @@
          ("haskell" (or (mode . haskell-mode)
                         (mode . literate-haskell-mode)))
          ("erc" (mode . erc-mode))
-         ("emacs" (name . "^\\*[ A-Za-z-]+\\*\\(<[0-9]+>\\)?$"))
+         ("emacs" (name . "^\\*[ A-Za-z0-9 -]+\\*\\(<[0-9]+>\\)?$"))
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
                        (filename . ".*")))
          ("pdf-view" (mode . pdf-view-mode))
