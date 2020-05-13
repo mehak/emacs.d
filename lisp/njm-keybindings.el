@@ -31,7 +31,9 @@
   "hw" 'where-is
   "hf" 'counsel-describe-function
   "hk" 'describe-key
-  "c" 'calendar)
+  "c" 'calendar
+  "ws" 'window-configuration-to-register
+  "wr" 'jump-to-register)
 
 
 ;; EXWM
