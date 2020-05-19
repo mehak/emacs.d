@@ -33,7 +33,8 @@
   "hk" 'describe-key
   "c" 'calendar
   "ws" 'window-configuration-to-register
-  "wr" 'jump-to-register)
+  "wr" 'jump-to-register
+  "xr" 'njm/exwm/refresh)
 
 
 ;; EXWM

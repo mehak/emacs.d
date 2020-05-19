@@ -44,6 +44,19 @@
 ;; exwm-randr
 (require 'exwm-randr)
 
+
+;; Attempt to fix screen freeze issues
+(defun njm/exwm/refresh ()
+  "Restart picom/compton"
+  (interactive)
+  (call-process "/usr/bin/killall"
+                nil nil nil
+                "picom")
+  (call-process "/usr/bin/picom"
+                nil nil nil
+                "-b"))
+
+;; Smaller function dependent on the stat in exwm-change-screen-hook
 (defun njm/exwm/default-only (default-display first-match-point)
   "Only show the default display"
   (goto-char first-match-point)
