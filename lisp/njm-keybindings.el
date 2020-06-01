@@ -58,6 +58,7 @@
 (dolist (key-spec
          '(("s-r" . exwm-reset)
            ("s-w" . exwm-workspace-switch)
+           ("s-f" . counsel-linux-app)
            ("s-s" . mehak/screenshot)
            ("<print>" . mehak/screenshot)
            ("s-l" . mehak/lock-computer)))
