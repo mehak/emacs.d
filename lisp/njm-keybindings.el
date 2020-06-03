@@ -34,7 +34,8 @@
   "c" 'calendar
   "ws" 'window-configuration-to-register
   "wr" 'jump-to-register
-  "xr" 'njm/exwm/refresh)
+  "xr" 'njm/exwm/refresh
+  "f" 'counsel-linux-app)
 
 
 ;; EXWM
