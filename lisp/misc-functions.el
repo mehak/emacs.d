@@ -119,14 +119,22 @@ PATH may be any user defined path but defaults to
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; used in modeline
-(defun mehak/bond0-ip ()
-  "Shows current ip assigned to bond0"
+(defun mehak/get-ip-by-interface (interface)
+  "Shows current ip assigned to interface"
   (or (format-network-address
     (first
      (network-interface-info
-      "bond0"))
+      interface))
     "omit-port")
       "no ip"))
+
+(defun mehak/bond0-ip ()
+  "Shows current ip assigned to bond0"
+  (mehak/get-ip-by-interface "bond0"))
+
+(defun mehak/enp3s0-ip ()
+  "Shows current ip assigned to enp3s0"
+  (mehak/get-ip-by-interface "enp3s0"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
