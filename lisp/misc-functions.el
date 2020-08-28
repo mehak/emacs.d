@@ -187,3 +187,12 @@ magnification value"
       (replace-regexp "^.*$" copy-line)
       (buffer-string))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Sync clipboard to primary selection
+(defun mehak/copy-clipboard-to-primary ()
+  "Copy the clipboard selection to the primary selection"
+  (interactive)
+  ;; (shell-command "xsel -o -b | xsel -i" nil nil)
+  (shell-command "echo does not work right now" nil nil))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

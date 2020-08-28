@@ -85,7 +85,7 @@
    mode-line-misc-info
    mode-line-buffer-identification
    (:eval (propertize
-           (format " %s " (mehak/bond0-ip))
+           (format " %s " (mehak/enp3s0-ip))
            'face
            `(:foreground "sienna")))
    mode-line-end-spaces))

@@ -60,6 +60,7 @@
          '(("s-r" . exwm-reset)
            ("s-w" . exwm-workspace-switch)
            ("s-f" . counsel-linux-app)
+           ("s-p" . mehak/copy-clipboard-to-primary)
            ("s-s" . mehak/screenshot)
            ("<print>" . mehak/screenshot)
            ("s-l" . mehak/lock-computer)))
