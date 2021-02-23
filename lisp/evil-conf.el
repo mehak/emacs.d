@@ -22,9 +22,6 @@
   :init
   :config)
 
-;; evil-magit
-(require 'evil-magit)
-
 ;; evil-lisp
 (require 'evil-lispy)
 (add-hook 'lisp-mode-hook #'evil-lispy-mode)

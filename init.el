@@ -177,6 +177,7 @@
 (load "tiny-conf")
 (load "proced-conf")
 (load "purescript-conf")
+(load "vterm-conf")
 (require 'site-up)
 ;; Make sure to load this last
 ;; TODO move to general.el
