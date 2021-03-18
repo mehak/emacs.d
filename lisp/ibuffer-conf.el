@@ -61,6 +61,7 @@
                        (filename . ".*")))
          ("pdf-view" (mode . pdf-view-mode))
          ("zoom" (predicate . (mehak/ibuffer-exwm-match "zoom")))
+         ("gajim" (predicate . (mehak/ibuffer-exwm-match "Gajim")))
          ("firefox" (predicate . (mehak/ibuffer-exwm-match "firefox"))))))
 
 (setq ibuffer-show-empty-filter-groups nil)
