@@ -55,6 +55,7 @@
          ("haskell" (or (mode . haskell-mode)
                         (mode . literate-haskell-mode)))
          ("erc" (mode . erc-mode))
+         ("jabber" (name . "^\*-jabber*"))
          ("emacs" (or (name . "^\\*[ A-Za-z0-9 -]+\\*\\(<[0-9]+>\\)?$")
                       (mode . vterm-mode)))
          ("magit" (and (name . "^magit\\(\\|-.*?\\): ")
