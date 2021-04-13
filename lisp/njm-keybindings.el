@@ -24,6 +24,7 @@
 (evil-leader/set-key
   "xf" 'find-file
   "xb" 'ivy-switch-buffer
+  "b" 'ivy-switch-buffer
   "xg" 'magit-status
   ";" 'eval-expression
   "d" 'kill-whole-line
