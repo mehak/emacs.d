@@ -54,6 +54,7 @@
                               (mode . compilation-mode)))))
          ("haskell" (or (mode . haskell-mode)
                         (mode . literate-haskell-mode)))
+         ("PowerShell" (mode . powershell-mode))
          ("erc" (mode . erc-mode))
          ("jabber" (name . "^\*-jabber*"))
          ("shells" (or (mode . eshell-mode)
