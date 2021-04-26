@@ -56,6 +56,7 @@
                         (mode . literate-haskell-mode)))
          ("PowerShell" (mode . powershell-mode))
          ("erc" (mode . erc-mode))
+         ("dired" (mode . dired-mode))
          ("jabber" (name . "^\*-jabber*"))
          ("shells" (or (mode . eshell-mode)
                        (mode . vterm-mode)))
