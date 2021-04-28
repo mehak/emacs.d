@@ -16,7 +16,9 @@
         proced-mode
         mu4e-headers-mode
         eshell-mode
-        term-mode))
+        term-mode
+        Man-mode
+        vterm-mode))
 
 ;; Emojis everywhere else
 (add-hook 'after-init-hook #'global-emojify-mode)
