@@ -95,6 +95,19 @@ PATH may be any user defined path but defaults to
                                  (time-to-seconds (current-time))))))
   (call-process "/usr/bin/import" nil nil nil path))
 
+(defun mehak/screenshot-wholescreen ()
+  "Takes a screenshot of the whole screen
+Used to take a screenshot named /tmp/vm/screenshot-%s.jpg."
+  (interactive)
+  (call-process "/usr/bin/import"
+                nil
+                nil
+                nil
+                "-window"
+                "root"
+                (format "/home/nmerlin/records/pictures/screenshots/screen-%s.jpg"
+                        (time-to-seconds (current-time)))))
+
 ;; Add command for creating new eshell buffers
 (defun eshell-new()
   "Open a new instance of eshell."
@@ -122,7 +135,7 @@ PATH may be any user defined path but defaults to
 (defun mehak/get-ip-by-interface (interface)
   "Shows current ip assigned to interface"
   (or (format-network-address
-    (first
+    (car
      (network-interface-info
       interface))
     "omit-port")
