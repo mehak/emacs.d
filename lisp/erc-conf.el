@@ -8,7 +8,7 @@
  erc-log-write-after-insert t
  erc-rename-buffers t
  erc-nick "mehak"
- erc-server "i.b1n.win"
+ erc-server "irc.libera.chat"
  erc-port 6697
  erc-fill-column 140
  erc-join-buffer 'bury

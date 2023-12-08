@@ -19,7 +19,6 @@
 
 (require 'package)
 
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
@@ -37,13 +36,14 @@
 (async-bytecomp-package-mode 1)
 (setq async-bytecomp-allowed-packages '(all))
 
-(set-face-attribute 'default nil :font "Source Code Pro" :height 83)
+(set-face-attribute 'default nil :font "Source Code Pro" :height 80)
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Indentation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Set javascript to use 4 spaces on indent
-(setq js-indent-level 4)
+;; Set javascript to use 2 spaces on indent
+(setq js-indent-level 2)
+(setq typescript-indent-level 2)
 ;; Powershell modes
 (setq powershell-indent 2)
 (setq powershell-location-of-exe "/usr/bin/pwsh")
@@ -93,8 +93,8 @@
 
 
 ;; Org-mode reveal.js export
-(require 'ox-reveal)
-(setq org-reveal-title-slide  "<p>%t</p><p>%a</p>")
+;(require 'ox-reveal)
+;(setq org-reveal-title-slide  "<p>%t</p><p>%a</p>")
 
 
 ;; Smartparens minor mode
@@ -157,6 +157,7 @@
 ;; and/or lazy load stuff
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/vendor/")
+;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-jabber")
 (load "misc-functions")
 (load "trailing-whitespace-conf")
 (load "evil-conf")
@@ -178,6 +179,8 @@
 (load "proced-conf")
 (load "purescript-conf")
 (load "vterm-conf")
+(load "jabber-conf")
+(load "ediff-conf")
 (require 'site-up)
 ;; Make sure to load this last
 ;; TODO move to general.el
@@ -185,3 +188,4 @@
 
 
 (eshell)
+(put 'downcase-region 'disabled nil)

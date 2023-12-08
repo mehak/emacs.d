@@ -8,7 +8,7 @@
 (require 'exwm-config)
 ;; the below is basically (exwm-config-default) minus ido
 ;; Set the initial workspace number.
-(setq exwm-workspace-number 2)
+(setq exwm-workspace-number 1)
 
 
 (defun mehak/exwm-update-buffer-name ()
@@ -37,6 +37,9 @@
           (exwm-input-char-mode)
         (exwm-input-line-mode)))))
 
+
+;; (setq exwm-workspace-minibuffer-position 'bottom)
+;; (setq exwm-workspace-display-echo-area-timeout 5)
 
 ;; Enable EXWM
 (exwm-enable)
@@ -111,5 +114,5 @@
           (apply 'call-process xrandr-command-multiple-monitors))
         (setq exwm-randr-workspace-monitor-plist (list 1 (match-string 1)))))))
 
-(add-hook 'exwm-randr-screen-change-hook 'exwm-change-screen-hook)
+;(add-hook 'exwm-randr-screen-change-hook 'exwm-change-screen-hook)
 (exwm-randr-enable)

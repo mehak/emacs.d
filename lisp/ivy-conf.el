@@ -21,6 +21,10 @@
 ;; use arrow for current selection
 (setq ivy-format-function #'ivy-format-function-line)
 
+;; Sort counsel-recentf by last opened
+(add-to-list 'ivy-sort-functions-alist
+             '(counsel-recentf . file-newer-than-file-p))
+
 ;; magit ivy-completion
 (setq magit-completing-read-function 'ivy-completing-read)
 

@@ -32,8 +32,7 @@
          (propertize "]\n" 'face `(:foreground "green")))))
 
 (setq eshell-visual-commands
-      '("vi"
-        "screen"
+      '("screen"
         "top"
         "less"
         "more"

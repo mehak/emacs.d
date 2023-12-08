@@ -13,8 +13,9 @@
 (global-set-key (kbd "<f11>") 'sdcv-search-input)
 (global-set-key (kbd "<f10>") 'sdcv-search-pointer)
 ;; This is a hack so that the sdvc buffer/frame/window close together
-(evil-define-key 'normal sdcv-mode-map
-  "q" 'quit-window)
+(evil-define-key 'normal sdcv-mode-map "q" 'quit-window)
+
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
 
 
 ;;; evil
@@ -58,11 +59,12 @@
 
 ;; Global keys
 (dolist (key-spec
-         '(("s-r" . exwm-reset)
-           ("s-w" . exwm-workspace-switch)
+         '(("s-w" . exwm-workspace-switch)
            ("s-f" . counsel-linux-app)
+           ("s-e" . eshell-new)
+           ("s-c" . multi-vterm)
            ("s-p" . mehak/copy-clipboard-to-primary)
-           ("s-s" . mehak/screenshot)
+           ("s-s" . mehak/screenshot-wholescreen)
            ("<print>" . mehak/screenshot)
            ("s-l" . mehak/lock-computer)))
   (exwm-input-set-key (kbd (car key-spec)) (cdr key-spec)))
@@ -81,3 +83,6 @@
                       `(lambda ()
                          (interactive)
                          (exwm-workspace-switch-create ,i))))
+
+;; lispy lisp mode keybindings
+; (add-hook 'lisp-mode-hook 'mehak/lispy-lisp-mode-set-e)

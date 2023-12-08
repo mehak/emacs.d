@@ -17,8 +17,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Battery mode
-(setq battery-mode-line-format "%p%%")
-(display-battery-mode 1)
+(setq battery-mode-line-format " ")
+(display-battery-mode 0)
 
 ;; Pulled from smart-mode-line
 (defface sml/global           '((t :inverse-video nil)) "")
@@ -71,21 +71,45 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Variables and functions for manipulating the modeline
+
 ;;  TODO figure out how to put the ip address in a variable for looks
 ;;       maybe something like ip-address-mode-line
-(setq-default
- mode-line-format
- '("%e"
-   mode-line-front-space
-   mehak-mode-line-position
-   " "
-   mode-line-modified
-   " "
-   minions-mode-line-modes
-   mode-line-misc-info
-   mode-line-buffer-identification
-   (:eval (propertize
-           (format " %s " (mehak/enp3s0-ip))
-           'face
-           `(:foreground "sienna")))
-   mode-line-end-spaces))
+(defvar mehak/modeline
+  '("%e"
+    mode-line-front-space
+    mehak-mode-line-position
+    " "
+    mode-line-modified
+    " "
+    minions-mode-line-modes
+    mode-line-misc-info
+    " "
+    mode-line-buffer-identification
+    (:eval (propertize
+            (format " %s " (mehak/get-ip-by-interface "enp12s0"))
+            'face
+            `(:foreground "sienna")))
+    mode-line-end-spaces)
+  "My normal modeline")
+
+(defun mehak/toggle-mode-line-local ()
+  "Toggle viewing the mode line for current buffer"
+  (interactive)
+  (if (eql mehak/modeline mode-line-format)
+      (setq mode-line-format nil)
+    (setq mode-line-format mehak/modeline))
+  (redraw-display))
+
+(defun mehak/toggle-mode-line ()
+  "Toggle viewing the mode line"
+  (interactive)
+  (if (eql mehak/modeline mode-line-format)
+      (setq-default mode-line-format nil)
+    (setq-default mode-line-format mehak/modeline))
+  (redraw-display))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default mode-line-format mehak/modeline)

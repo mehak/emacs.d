@@ -148,6 +148,10 @@ Used to take a screenshot named /tmp/vm/screenshot-%s.jpg."
 (defun mehak/enp3s0-ip ()
   "Shows current ip assigned to enp3s0"
   (mehak/get-ip-by-interface "enp3s0"))
+
+(defun mehak/enp10s0-ip ()
+  "Shows current ip assigned to enp10s0"
+  (mehak/get-ip-by-interface "enp10s0"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -208,4 +212,13 @@ magnification value"
   (interactive)
   ;; (shell-command "xsel -o -b | xsel -i" nil nil)
   (shell-command "echo does not work right now" nil nil))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Sync clipboard to primary selection
+(defun mehak/lispy-lisp-mode-set-e ()
+  (interactive)
+  (if (string-equal major-mode "lisp-mode")
+      (lispy-define-key lispy-mode-map "e" 'sly-eval-last-expression)
+    (lispy-define-key lispy-mode-map "e" 'lispy-eval)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

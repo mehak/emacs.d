@@ -22,14 +22,14 @@
 
 (setq ibuffer-formats
       '((mark modified read-only locked " "
-              (name 50 50 :left :elide)
+              (name 140 140 :left :elide)
               " "
               (size-h 16 16 :right)
               " "
               (exwm-mode 18 18 :left :elide)
               " " filename-and-process)
         (mark modified read-only locked " "
-              (name 50 50 :left :elide)
+              (name 140 140 :left :elide)
               " "
               (size-h 16 16 :right)
               " "
